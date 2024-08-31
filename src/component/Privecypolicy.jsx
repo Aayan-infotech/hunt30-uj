@@ -396,7 +396,7 @@ const PrivecyPolicy = () => {
     If you have any questions about this Privacy Policy, You can contact us:
   </p>
   <ul>
-    <li>By email: mailto:nicolewang@questeducation.asia</li>
+  <li><a href="mailto:development@aayaninfotech.com">By email: development@aayaninfotech.com</a></li>
   </ul>
 </>
       
