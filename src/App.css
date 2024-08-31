@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css");
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body,
+button,
+input,
+textarea{
+  font-family: "Poppins", sans-serif;
+}
+
+.container{
+    margin: 0 150px;
+}
+
+@media screen and (max-width: 992px) {
+  .container{
+    margin: 0 120px;
+}
+}
+
+/* For medium devices */
+@media screen and (max-width: 768px) {
+  .container{
+    margin: 0 80px;
+}
+}
+
+@media screen and (max-width: 576px) {
+  .container{
+    margin: 0 50px;
+}
+}
+
+/* For small devices */
+@media screen and (max-width: 350px) {
+  .container{
+    margin: 0 30px;
+  }
+}

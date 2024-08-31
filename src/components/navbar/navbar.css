@@ -1,0 +1,65 @@
+.navbar{
+    padding: 10px 0;
+    background-color: black;
+    color: #fff;
+}
+.navbar .nav-logo .first-logo{
+    color: #FE0000;
+    margin-left: 20px;
+}
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+}
+.nav-routes{
+    display: flex;
+    position: relative;
+    right: 80px;
+}
+
+.nav-routes h3{
+    margin-top: 20px;
+    margin-right: 40px;
+}
+
+.nav-routes h3:hover{
+    color: #FE0000;
+    border-bottom: 2px solid #FE0000;
+}
+
+.nav-button .butt-logo{
+    margin-top: 15px;
+    padding: 8px 40px;
+    background-color: #FE0000;
+    color: #fff;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-button .butt-logo:hover{
+    background-color: #ff2f2f;
+}
+
+/*=============== BREAKPOINTS ===============*/
+@media screen and (max-width: 992px) {
+}
+
+/* For medium devices */
+@media screen and (max-width: 768px) {
+    .nav-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .navbar .nav-logo .first-logo{
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 576px) {
+}
+
+/* For small devices */
+@media screen and (max-width: 350px) {
+}

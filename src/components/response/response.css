@@ -1,0 +1,25 @@
+.response{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px solid rgba(0, 0, 0, 0.262);
+    border-radius: 50px;
+    text-align: center;
+    height: 88vh;
+}
+
+.response-head{
+    font-size: 3.5rem;
+}
+
+.response-subHead{
+    font-size: 1.8rem;
+}
+.response .response-head{
+    color:  #FE3C00;
+}
+
+.response p i{
+    color:  #FE3C00;
+    font-size: 4rem;
+}
