@@ -21,73 +21,19 @@ import test4 from "../../image/carasuel4.png";
 import test5 from "../../image/carasuel5.png";
 import "./Home.css";
 
-function Home() {
-    // const [currentIndex, setCurrentIndex] = useState(0); 
-    // const testimonials = [
-    //     {
-    //       name: "Tom Roberts",
-    //       text: "As a taxidermist for many years, I was skeptical about switching to digital tracking, but Taxidermy Management has been a game-changer. The mount progress monitoring saves me hours of answering client calls, and the automated alerts keep my customers informed without me lifting a finger.",
-    //       img: User1,
-    //     },
-    //     {
-    //       name: "Emily Davis",
-    //       text: "Finally, software that understands our industry! The custom price quote generator has eliminated my pricing headaches, and the financial dashboard gives me a clear picture of my shop's performance. My clients love getting automatic updates about their mounts. It's like having an extra employee without the payroll.",
-    //       img: User2,
-    //     },
-    //     {
-    //       name: "Sarah Williams",
-    //       text: "What sold me was how easy it is to track multiple orders. Before, I was drowning in paperwork and sticky notes. Now I can see all my client's orders, progress, and payments in one place.  Would recommend to any serious taxidermist looking to modernize their shop.",
-    //       img: User3,
-    //     },
-    //     {
-    //       name: "John Doe",
-    //       text: "As a taxidermist for many years, I was skeptical about switching to digital tracking, but Taxidermy Management has been a game-changer. The mount progress monitoring saves me hours of answering client calls, and the automated alerts keep my customers informed without me lifting a finger.",
-    //       img: User1,
-    //     },
-    //     {
-    //       name: "Jane Smith",
-    //       text: "As a taxidermist for many years, I was skeptical about switching to digital tracking, but Taxidermy Management has been a game-changer. The mount progress monitoring saves me hours of answering client calls, and the automated alerts keep my customers informed without me lifting a finger.",
-    //       img: User2,
-    //     },
-    // ];
-
-    // const getVisibleTestimonials = () => {  
-    //     if (window.innerWidth <= 768) return 1; // Mobile screen  
-    //     if (window.innerWidth <= 1024) return 2; // Tablet screen  
-    //     return 3; // Desktop screen  
-    // };  
-    // const [visibleItems, setVisibleItems] = useState(getVisibleTestimonials()); 
-    
-    // useEffect(() => {  
-    //     const handleResize = () => setVisibleItems(getVisibleTestimonials());  
-    //     window.addEventListener("resize", handleResize);  
-    //     return () => window.removeEventListener("resize", handleResize);  
-    // }, []);  
-    
-    // const prevSlide = () => {  
-    //     setCurrentIndex((prevIndex) =>  
-    //         prevIndex === 0 ? testimonials.length - visibleItems : prevIndex - 1  
-    //     );  
-    // };  
-    
-    // const nextSlide = () => {  
-    //     setCurrentIndex((prevIndex) =>  
-    //         prevIndex === testimonials.length - visibleItems ? 0 : prevIndex + 1  
-    //     );  
-    // };  
-    
+function Home() {   
   const steps = [
         {
           title: "TAXIDERMY NEAR YOUR LOCATION",
           description:
             "Locate best taxidermy services near you to preserve your hunting trophies",
-          icon: gif1, // Replace with an actual icon/image if needed
+          icon: gif1,
           rating: 5,
         },
         {
           title: "CUSTOMIZE YOUR TROPHY",
           description: "Create your custom trophy step by step",
-          icon: gif2, // Replace with an actual icon/image if needed
+          icon: gif2,
           rating: 5,
         },
         {
@@ -279,31 +225,6 @@ function Home() {
           </h1>
         </div>
       </div>
-
-      {/* Client-review */}
-      {/* <div style={{ textAlign: "center" }}>  
-        <h2 style={{ color: "#fff", fontSize: "40px", fontWeight: "400" }}>  What <span style={{ color: "#FF0000" }}>Clients </span>Say About Us  </h2>  
-        <div  style={{  display: "flex",  alignItems: "center",  justifyContent: "center",  height: "70vh",  }}  >   
-            <button  onClick={prevSlide}  style={{  backgroundColor: "transparent",  color: "white",  fontSize: "26px",  border: "none",  cursor: "pointer",  marginRight: "10px",  border: "2px solid #fff", padding: "0px 5px",  borderRadius: "5px",  }}  >  
-                {"<"}  
-            </button>  
-
-            <div  style={{  display: "flex",  width: "80%",  overflow: "hidden",  justifyContent: "center",  }}  >  
-                {testimonials .slice(currentIndex, currentIndex + visibleItems) .map((testimonial, index) => (  
-                        <div key={index} style={{width: "350px", margin: "0 20px", padding: "20px", backgroundColor: "#222", color: "white", borderRadius: "10px", boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)", textAlign: "center", transition: "transform 0.3s ease",}}>  
-                            <div style={{ display: "flex", gap: "10px" }}>  
-                                <img src={testimonial.img} alt={testimonial.name} style={{borderRadius: "50%",  marginBottom: "10px", border: "2px solid white", height: "50px", width: "50px",}}/>  
-                                <h3 style={{ marginBottom: "10px" }}>  {testimonial.name}  </h3>  
-                            </div>  
-                            <p>{testimonial.text}</p>  
-                        </div>  
-                    ))}  
-            </div>  
-
-            <button onClick={nextSlide} style={{backgroundColor: "transparent", color: "white", fontSize: "26px", border: "none", cursor: "pointer", marginLeft: "10px", border: "2px solid #fff", padding: "0px 5px", borderRadius: "5px",  }}>{">"}</button>  
-        </div>  
-      </div>   */}
-
       {/* Install-App */}
       <div className="section" style={{ backgroundColor: "#101010", color: "white", textAlign: "center", padding: "20px 0",}}>
         <h3>START HUNT</h3>
@@ -319,10 +240,10 @@ function Home() {
 
         <div className="links-s" style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "20px", textAlign: "center", gap: "20px"}}>
           <h4 style={{marginTop: '25px'}}>Join Us On</h4>
-          <a href="https://www.apple.com/app-store/" target="_blank" rel="noreferrer">
+          <a href="https://apps.apple.com/us/app/taxidermy-management/id6670444015" target="_blank" rel="noreferrer">
             <img src={app1} alt="App Store" style={{ borderRadius: "10px", maxHeight: "65px", maxWidth: "500px" }}/>
           </a>
-          <a href="https://play.google.com/store" target="_blank" rel="noreferrer">
+          <a href="https://play.google.com/store/apps/details?id=com.hunt30.taxidermy" target="_blank" rel="noreferrer">
             <img src={app2} alt="Google Play" style={{ borderRadius: "10px", maxHeight: "65px", maxWidth: "500px" }}/>
           </a>
         </div>
