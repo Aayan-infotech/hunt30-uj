@@ -205,7 +205,7 @@ function Home() {
             streamlines the process, so you can focus on delivering exceptional
             service.
           </p>
-          <button>Let's Hunt</button>
+          <button onClick={() => window.location.href = 'https://apps.apple.com/us/app/taxidermy-management/id6670444015'}>Install Now</button>
         </div>
         <img src={installImg} alt="Welcome-page" className="welcome-img" height="400px"/>
       </div>
@@ -225,6 +225,7 @@ function Home() {
           </h1>
         </div>
       </div>
+
       {/* Install-App */}
       <div className="section" style={{ backgroundColor: "#101010", color: "white", textAlign: "center", padding: "20px 0",}}>
         <h3>START HUNT</h3>
@@ -251,7 +252,7 @@ function Home() {
 
       {/* Footer-sec */}
       <footer className="footer section1">
-        <div className="footer-content">
+        <div className="footer-content"  style={{ borderBottom: '1px solid white', paddingBottom: '10px' }}>
           <div className="footer-brand">
             <h2><span className="highlight">Taxidermy<br /></span> Management</h2>
             <p>Streamline your taxidermy projects with ease using Taxidermy Management.</p>
@@ -261,15 +262,15 @@ function Home() {
             <div className="footer-contact-details">
               <div className="contact-item">
                 <strong>PHONE:</strong>
-                <p>+1 5025595867</p>
+                <p style={{width: '120px'}}><a href="tel:+15025595867">+1 5025595867</a></p>
               </div>
               <div className="contact-item">
                 <strong>EMAIL:</strong>
-                <p>hunt30apps@gmail.com</p>
+                <p><a href="mailto:hunt30apps@gmail.com" style={{whiteSpace: 'normal'}}>hunt30apps@gmail.com</a></p>
               </div>
               <div className="contact-item">
                 <strong>ADDRESS:</strong>
-                <p>889 Colloredo Blvd. Shelbyville, TN 37160</p>
+                <p style={{width: '350px'}}>889 Colloredo Blvd. Shelbyville, TN 37160</p>
               </div>
             </div>
           </div>
