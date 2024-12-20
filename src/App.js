@@ -7,13 +7,14 @@ import PrivecyPolicy from'./component/Privecypolicy'
 import DeleteAccountPolicy from'./component/DeleteAccount'
 import TermsAndConditions from'./component/TermsCondition'
 import AboutUs from'./component/AboutUs'
+import Home from './components/Home/Home';
 
 
 function App() {
   return (
         <Router>
         <div className="App">
-          <Navbar />
+          {/* <Navbar /> */}
           <Routes>
             <Route path="/signup" element={<SignUp />} />
             <Route path="/response" element={<Response />} />
@@ -21,6 +22,7 @@ function App() {
             <Route path="/deletePolicy" element={<DeleteAccountPolicy />} />
             <Route path="/termCondition" element={<TermsAndConditions />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/" element={<SignUp />} />
           </Routes>
         </div>

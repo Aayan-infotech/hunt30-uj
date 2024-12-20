@@ -3,7 +3,7 @@ import './DeleteAccount.css';
 
 const DeleteAccountPolicy = () => {
   return (
-    <div>
+    <div className='deleteAccount'>
       <h1>Delete Account Policy</h1>
       <p><strong>Last updated:</strong> August 31, 2024</p>
 

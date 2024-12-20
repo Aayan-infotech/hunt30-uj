@@ -1,0 +1,523 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+button,
+input,
+textarea,
+.home {
+  font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: #fff;
+}
+
+.home {
+  background-color: #000;
+  color: #fff;
+}
+
+.section {
+  padding: 0 80px;
+}
+
+.sectionSpace {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.section1 {
+  margin: 0 80px;
+}
+
+/*----- Navbar -----*/
+.navbar2 {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #000;
+  position:sticky;
+  top: 0px;
+}
+
+.navbar2 .logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.navbar2 .nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.navbar2 .nav-links li {
+  margin: 0 15px;
+}
+
+.navbar2 .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/*----- Main-Sec -----*/
+.content {
+  background: url("../../image/home-back.png") no-repeat center center;
+  background-size: 100% 100%;
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.text-box {
+  background-color: #000;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.text-box h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.text-box ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0 0 20px 0;
+}
+
+.text-box ul li {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.text-box ul li::marker {
+  color: #ff0000;
+  font-size: 1.2rem;
+}
+
+.text-box button {
+  background-color: #000;
+  color: #ff0000;
+  border: none;
+  padding: 10px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #ff0000;
+  float: left;
+}
+
+.text-box button:hover {
+  background-color: #ff0000;
+  color: #000;
+}
+
+/* welcome-Sec */
+.welcome-sec {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.welcome-p button {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #ff0000;
+}
+
+.welcome-img {
+  background: radial-gradient(circle, #ff000080, #ff000000);
+  border-radius: 20%;
+}
+
+/*----- AppProcess-Sec -----*/
+.three-step-container {
+  text-align: center;
+  padding: 2rem;
+  background-color: #000;
+  color: #fff;
+}
+
+.three-step-container h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.three-step-container .highlight {
+  color: #f00;
+}
+
+.three-step-cards {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.three-step-cards .card img {
+  max-width: 300px;
+  height: 220px;
+  margin: 1rem;
+}
+
+.card {
+  background-color: #222;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  flex: 1;
+  max-width: 420px;
+  border: 2px solid #646161;
+}
+
+.card .icon {
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  color: #f00;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.card .rating {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #ff0;
+}
+
+.three-step-cards button {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #ff0000;
+}
+
+/* Install-sec */
+.install-sec {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+/* Taxi-management */
+.background-video {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.video-container {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 5%;
+  left: 34%;
+}
+
+.rufo {
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-item {
+  flex: 0 0 calc(25% - 10px);
+}
+
+/*----- footer -----*/
+.footer {
+  padding: 20px;
+  background-color: #000;
+  color: #333;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-brand h2 {
+  font-size: 40px;
+}
+
+.footer-brand .highlight {
+  color: #ff0000;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  gap: 20px;
+}
+
+.footer-contact-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.contact-item {
+  margin: 10px;
+  /* min-width: 200px; */
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+@media screen and (max-width: 992px) {
+  .welcome-sec {
+    flex-direction: column;
+  }
+  .app-content {
+    flex-direction: column;
+  }
+  .app-text {
+    margin-bottom: 20px;
+  }
+  .three-step-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .three-step-cards .card {
+    width: 100%;
+  }
+  .three-step-cards .card img {
+    max-width: 250px;
+    height: 150px;
+    margin: 1rem;
+  }
+  .install-sec {
+    flex-direction: column-reverse;
+  }
+  .overlay img {
+    height: 150px;
+  }
+  .overlay h1 {
+    font-size: 50px !important;
+  }
+  .carousel-item {
+    flex: 0 0 calc(50% - 10px);
+  }
+  .links-s img {
+    max-height: 50px !important;
+    max-width: 450px !important;
+  }
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-brand h2 {
+    font-size: 36px;
+  }
+
+  .footer-contact-details {
+    justify-content: center;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 0 40px;
+  }
+
+  .section1 {
+    margin: 0 40px;
+  }
+  .text-box h1 {
+    font-size: 40px;
+  }
+
+  .text-box ul li {
+    font-size: 16px;
+  }
+
+  .text-box button {
+    font-size: 16px;
+  }
+  .navbar2 {
+    flex-direction: column;
+  }
+
+  .navbar2 .logo {
+    padding-top: 10px;
+  }
+
+  .app-img img {
+    height: 250px;
+  }
+  .background-video {
+    height: 350px;
+  }
+  .overlay {
+    position: absolute;
+    top: 10%;
+    left: 34%;
+  }
+  .overlay img {
+    height: 130px;
+  }
+  .overlay h1 {
+    font-size: 40px !important;
+  }
+  .footer-contact{
+    text-align: center;
+  }
+  .welcome-img{
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .navbar2 .logo {
+    font-size: 20px;
+  }
+  .text-box {
+    position: relative;
+    top: -8%;
+    padding: 10px;
+  }
+
+  .text-box button {
+    font-size: 16px;
+  }
+
+  .app-img {
+    gap: 10px !important;
+  }
+
+  .app-img img {
+    height: 200px;
+  }
+  div {
+    padding: 0;
+  }
+  .background-video {
+    height: 300px;
+  }
+  .overlay {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+  }
+  .carousel-item {
+    flex: 0 0 calc(100% - 10px);
+  }
+  .links-s {
+    flex-direction: column;
+  }
+  .links-s h4 {
+    margin-bottom: 0px;
+    margin-top: 0px !important;
+  }
+  .footer-brand h2 {
+    font-size: 28px;
+  }
+
+  .footer-contact-details {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-item {
+    text-align: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .content {
+    height: 100vh;
+  }
+
+  .text-box {
+    position: relative;
+    top: -8%;
+  }
+  .text-box h1 {
+    font-size: 35px;
+  }
+
+  .text-box ul li {
+    font-size: 16px;
+  }
+
+  .text-box button {
+    font-size: 16px;
+  }
+  .app-img img {
+    height: 170px;
+  }
+  .overlay {
+    position: absolute;
+    top: 10%;
+    left: 25%;
+  }
+  .overlay img {
+    height: 100px;
+  }
+  .overlay h1 {
+    font-size: 30px !important;
+  }
+  .welcome-img{
+    height: 300px;
+  }
+}
