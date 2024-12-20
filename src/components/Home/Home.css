@@ -44,6 +44,7 @@ p {
 .navbar2 {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 20px;
   background-color: #000;
   position:sticky;
@@ -56,6 +57,10 @@ p {
   font-size: 24px;
   font-weight: bold;
   margin: 0 auto;
+}
+
+.navbar2 .logo span{
+  margin-right: 10px;
 }
 
 .navbar2 .nav-links {
@@ -76,7 +81,7 @@ p {
 /*----- Main-Sec -----*/
 .content {
   background: url("../../image/home-back.png") no-repeat center center;
-  background-size: 100% 100%;
+  background-size: 100% 108%;
   height: 90vh;
   width: 100%;
   display: flex;
@@ -156,10 +161,10 @@ p {
   border: 2px solid #ff0000;
 }
 
-.welcome-img {
+/* .welcome-img {
   background: radial-gradient(circle, #ff000080, #ff000000);
   border-radius: 20%;
-}
+} */
 
 /*----- AppProcess-Sec -----*/
 .three-step-container {
@@ -236,7 +241,7 @@ p {
 .install-sec {
   display: flex;
   justify-content: space-between;
-  gap: 50px;
+  gap: 100px;
 }
 
 /* Taxi-management */
@@ -263,6 +268,28 @@ p {
 
 .carousel-item {
   flex: 0 0 calc(25% - 10px);
+}
+
+
+/*----- Reviews-Sec -----*/
+.carousel-wrapper {
+  max-width: 800px;
+  margin: auto;
+}
+
+.testimonial {
+  background: #000;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.testimonial img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
 
 /*----- footer -----*/
@@ -337,8 +364,9 @@ p {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+  }
 }
-}
+
 @media screen and (max-width: 992px) {
   .welcome-sec {
     flex-direction: column;
@@ -449,6 +477,11 @@ p {
   .welcome-img{
     height: 350px;
   }
+  .carousel .slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 }
 
 @media screen and (max-width: 576px) {
@@ -510,6 +543,19 @@ p {
     flex-direction: column;
     text-align: center;
   }
+}
+
+@media (max-width: 480px) {
+  .carousel-wrapper {
+    max-width: 100%;
+}
+.carousel .slide {
+    flex-direction: column;
+}
+.footer-content{
+  position: relative;
+  right: 20px;
+}
 }
 
 @media screen and (max-width: 400px) {

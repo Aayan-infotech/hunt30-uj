@@ -21,7 +21,93 @@ import test4 from "../../image/carasuel4.png";
 import test5 from "../../image/carasuel5.png";
 import "./Home.css";
 
-function Home() {   
+const testimonials = [
+  {
+    name: "Tom Roberts",
+    text: "As a taxidermist for many years, I was skeptical about switching to digital tracking, but Taxidermy Management has been a game-changer. The mount progress monitoring saves me hours of answering client calls, and the automated alerts keep my customers informed without me lifting a finger.",
+    img: User1,
+  },
+  {
+    name: "Emily Davis",
+    text: "Finally, software that understands our industry! The custom price quote generator has eliminated my pricing headaches, and the financial dashboard gives me a clear picture of my shop's performance. My clients love getting automatic updates about their mounts. It's like having an extra employee without the payroll.",
+    img: User2,
+  },
+  {
+    name: "Sarah Williams",
+    text: "What sold me was how easy it is to track multiple orders. Before, I was drowning in paperwork and sticky notes. Now I can see all my client's orders, progress, and payments in one place.  Would recommend to any serious taxidermist looking to modernize their shop.",
+    img: User3,
+  },
+  {
+    name: "John Doe",
+    text: "As a taxidermist for many years, I was skeptical about switching to digital tracking, but Taxidermy Management has been a game-changer. The mount progress monitoring saves me hours of answering client calls, and the automated alerts keep my customers informed without me lifting a finger.",
+    img: User1,
+  },
+  {
+    name: "Jane Smith",
+    text: "As a taxidermist for many years, I was skeptical about switching to digital tracking, but Taxidermy Management has been a game-changer. The mount progress monitoring saves me hours of answering client calls, and the automated alerts keep my customers informed without me lifting a finger.",
+    img: User2,
+  },
+  {
+    name: "Jane Smith",
+    text: "As a taxidermist for many years, I was skeptical about switching to digital tracking, but Taxidermy Management has been a game-changer. The mount progress monitoring saves me hours of answering client calls, and the automated alerts keep my customers informed without me lifting a finger.",
+    img: User2,
+  },
+];
+
+const getVisibleTestimonials = () => {
+  if (window.innerWidth <= 768) return 1;
+  if (window.innerWidth <= 1024) return 2;
+  return 3;
+};
+
+function Home() { 
+  
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleItems, setVisibleItems] = useState(getVisibleTestimonials());
+
+  useEffect(() => {
+    const handleResize = () => setVisibleItems(getVisibleTestimonials());
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleMouseDown1 = (e) => {
+    e.preventDefault();
+    const startX = e.pageX;
+    const initialIndex = currentIndex;
+
+    const handleMouseMove = (moveEvent) => {
+      const diff = moveEvent.pageX - startX;
+      if (diff > 100) {
+        setCurrentIndex((initialIndex - visibleItems + testimonials.length) % testimonials.length);
+        document.removeEventListener('mousemove', handleMouseMove);
+      } else if (diff < -100) {
+        setCurrentIndex((initialIndex + visibleItems) % testimonials.length);
+        document.removeEventListener('mousemove', handleMouseMove);
+      }
+    };
+
+    const handleMouseUp = () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+  };
+  
+    // const prevSlide = () => {  
+    //     setCurrentIndex((prevIndex) =>  
+    //         prevIndex === 0 ? testimonials.length - visibleItems : prevIndex - 1  
+    //     );  
+    // };  
+    
+    // const nextSlide = () => {  
+    //     setCurrentIndex((prevIndex) =>  
+    //         prevIndex === testimonials.length - visibleItems ? 0 : prevIndex + 1  
+    //     );  
+    // };  
+    
   const steps = [
         {
           title: "TAXIDERMY NEAR YOUR LOCATION",
@@ -194,8 +280,8 @@ function Home() {
       {/* Install-sec */}
       <div className="install-sec section sectionSpace">
         <div className="welcome-p">
-          <h2 style={{ color: "#fff", fontSize: "40px", fontWeight: "400" }}> MAKING THE HUNT <br />{" "}<span style={{ color: "#FF0000" }}>HAPPEN </span></h2>
-          <p style={{ color: "#fff", marginTop: "40px" }}>
+          <h2 style={{ color: "#fff", fontSize: "40px", fontWeight: "bolder" }}> MAKING THE HUNT <br />{" "}<span style={{ color: "#FF0000", fontSize: '50px' }}>HAPPEN </span></h2>
+          <p style={{ color: "#fff", marginTop: "10px" }}>
             Taxidermy Management is designed to simplify the entire project
             workflow. It efficiently tracks orders and schedules in one
             centralized location, making it easy to manage your taxidermy
@@ -205,7 +291,7 @@ function Home() {
             streamlines the process, so you can focus on delivering exceptional
             service.
           </p>
-          <button onClick={() => window.location.href = 'https://apps.apple.com/us/app/taxidermy-management/id6670444015'}>Install Now</button>
+          <button onClick={() => window.location.href = 'https://apps.apple.com/us/app/taxidermy-management/id6670444015'}>INSTALL NOW</button>
         </div>
         <img src={installImg} alt="Welcome-page" className="welcome-img" height="400px"/>
       </div>
@@ -225,6 +311,36 @@ function Home() {
           </h1>
         </div>
       </div>
+
+      {/* Client-review  */}
+      <div style={{ textAlign: "center" }}>
+      <h2 style={{ color: "#fff", fontSize: "40px", fontWeight: "400" }}>
+        What <span style={{ color: "#FF0000" }}>Clients</span> Say About Us
+      </h2>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "70vh" }}>
+        <div
+          style={{ display: "flex", width: "80%", overflow: "hidden", justifyContent: "center", cursor: "grab" }}
+          onMouseDown={handleMouseDown1}
+        >
+          {testimonials.slice(currentIndex, currentIndex + visibleItems).map((testimonial, index) => (
+            <div key={index} style={{
+              width: "350px", margin: "0 20px", padding: "20px",
+              backgroundColor: "#222", color: "white", borderRadius: "10px",
+              boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)", textAlign: "center", transition: "transform 0.3s ease",
+            }}>
+              <div style={{ display: "flex", gap: "10px" }}>
+                <img src={testimonial.img} alt={testimonial.name} style={{
+                  borderRadius: "50%", marginBottom: "10px",
+                  border: "2px solid white", height: "50px", width: "50px",
+                }} />
+                <h3 style={{ marginBottom: "10px" }}>{testimonial.name}</h3>
+              </div>
+              <p>{testimonial.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
 
       {/* Install-App */}
       <div className="section" style={{ backgroundColor: "#101010", color: "white", textAlign: "center", padding: "20px 0",}}>
