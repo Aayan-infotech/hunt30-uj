@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -27,8 +28,27 @@ p {
   color: #fff;
 }
 
+/* In Home.css or a relevant CSS file */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background-color: #FF0000;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #FF0000;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  display: none; 
+}
+
+
 .section {
   padding: 0 80px;
+}
+
+.section3{
+  margin: 50px 150px;
 }
 
 .sectionSpace {
@@ -44,45 +64,62 @@ p {
 .navbar2 {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
+  justify-content: space-between;
+  padding: 0 20px;
   background-color: #000;
-  position:sticky;
+  position: sticky;
   top: 0px;
-  z-index: 1;
+  z-index: 9999;
+  height: 70px;
 }
 
 .navbar2 .logo {
   color: white;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
-  margin: 0 auto;
+  position: absolute; /* Center logo horizontally */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.navbar2 .logo span{
+.navbar2 .logo span {
   margin-right: 10px;
 }
 
 .navbar2 .nav-links {
   list-style: none;
   display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 30px;
 }
 
 .navbar2 .nav-links li {
   margin: 0 15px;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .navbar2 .nav-links a {
   color: white;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 17px;
 }
+
+.navbar2 .divider {
+  width: 1px;
+  height: 100%;
+  background-color: #8b8a8a;
+  margin-left: 20px;
+}
+
 
 /*----- Main-Sec -----*/
 .content {
-  background: url("../../image/home-back.png") no-repeat center center;
-  background-size: 100% 108%;
-  height: 90vh;
+  background: url("../../image/home-back.JPG") no-repeat center center;
+  background-size: 100% 100%;
+  height: 92vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -161,10 +198,20 @@ p {
   border: 2px solid #ff0000;
 }
 
-/* .welcome-img {
+.welcome-bottom{
+  display: flex;
+  justify-content: space-between;
+}
+
+.welcome-bottom img{
+  height: 150px;
+  width: 250px;
+}
+
+.welcome-img:nth-child(1) {
   background: radial-gradient(circle, #ff000080, #ff000000);
   border-radius: 20%;
-} */
+}
 
 /*----- AppProcess-Sec -----*/
 .three-step-container {
@@ -261,6 +308,10 @@ p {
   left: 34%;
 }
 
+.overlay img{
+  margin-left: 70px;
+}
+
 .rufo {
   display: flex;
   gap: 10px;
@@ -269,7 +320,6 @@ p {
 .carousel-item {
   flex: 0 0 calc(25% - 10px);
 }
-
 
 /*----- Reviews-Sec -----*/
 .carousel-wrapper {
@@ -325,19 +375,16 @@ p {
 .footer-contact {
   display: flex;
   flex-direction: column;
-  /* align-items: flex-start; */
   gap: 20px;
 }
 
-.footer-contact .footer-contact-details p a{
+.footer-contact .footer-contact-details p a {
   color: #fff;
   text-decoration: none;
 }
 
-
 .footer-contact-details {
   display: flex;
-  /* flex-wrap: wrap; */
   gap: 10px;
 }
 
@@ -359,23 +406,87 @@ p {
   margin: 0;
 }
 
-@media screen and (max-width: 1250px){
-  .footer-contact-details {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+.client-app .slick-slider {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0; 
+}
+
+.testimonial-card {
+  width: 350px;
+  min-height: 320px;
+  margin: 0 10px; 
+  padding: 20px;
+  background-color: #222;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: left;
+}
+.slick-slide {
+  padding: 0 10px; 
+  /* margin-right: 20px; */
+}
+
+@media screen and (max-width: 1250px) {
+  .navbar2 {
+    flex-direction:column-reverse; 
+    height: auto; 
+    padding: 10px 20px;
+  }
+
+  .navbar2 .logo {
+    position: relative; 
+    left: unset; 
+    transform: unset; 
+    margin-bottom: 10px; 
+  }
+
+  .navbar2 .nav-links {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
+    width: 100%; 
+    height: auto;
+  }
+
+  .navbar2 .nav-links li {
+    margin: 0 15px; 
+  }
+
+  .navbar2 .divider {
+    display: none;
   }
 }
 
 @media screen and (max-width: 992px) {
   .welcome-sec {
     flex-direction: column;
+    gap: 20px;
+  }
+  .welcome-sec h2{
+    font-size: 35px!important;
+  }
+
+  .welcome-sec p{
+    margin-top: 20px!important;
+  }
+  .app-sec .app-h2{
+    font-size: 35px!important;
   }
   .app-content {
     flex-direction: column;
+    margin-top: 0px!important;
+  }
+  .app-sec .app-div{
+    margin-top: 20px!important;
   }
   .app-text {
     margin-bottom: 20px;
+  }
+  .install-sec{
+    gap: 20px;
   }
   .three-step-cards {
     flex-direction: column;
@@ -392,8 +503,12 @@ p {
   .install-sec {
     flex-direction: column-reverse;
   }
+  .background-video{
+    height: 400px;
+  }
   .overlay img {
     height: 150px;
+    margin-left: 30px;
   }
   .overlay h1 {
     font-size: 50px !important;
@@ -421,10 +536,21 @@ p {
     align-items: center;
     flex-direction: column;
   }
-
-  /* .footer-contact-details p{
-    width: 0px!important;
-  } */
+  .three-step-container, .client-app h2{
+    font-size: 35px!important;
+  }
+  .install-sec h2 span{
+    font-size: 40px!important;
+  }
+  .inst-sec h2{
+    font-size: 35px!important;
+  }
+  .install-sec h2{
+    font-size: 35px!important;
+  }
+  .section3{
+    margin: 50px 50px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -446,10 +572,6 @@ p {
   .text-box button {
     font-size: 16px;
   }
-  .navbar2 {
-    flex-direction: column;
-  }
-
   .navbar2 .logo {
     padding-top: 10px;
   }
@@ -471,22 +593,29 @@ p {
   .overlay h1 {
     font-size: 40px !important;
   }
-  .footer-contact{
+  .footer-contact {
     text-align: center;
   }
-  .welcome-img{
+  .welcome-img {
     height: 350px;
   }
   .carousel .slide {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+  }
+  .swiper-container {
+    display: flex;
+    justify-content: center; /* Center the swiper on mobile */
+  }
+  .swiper-container {
+    padding: 10px; /* Adjust padding on smaller screens */
+  }
 }
 
 @media screen and (max-width: 576px) {
   .navbar2 .logo {
-    font-size: 20px;
+    font-size: 24px;
   }
   .text-box {
     position: relative;
@@ -508,6 +637,14 @@ p {
   div {
     padding: 0;
   }
+  .welcome-bottom{
+    flex-direction: column;
+  }
+  
+  .welcome-bottom img{
+    height: 100px;
+    width: 200px;
+  }
   .background-video {
     height: 300px;
   }
@@ -515,6 +652,9 @@ p {
     position: absolute;
     top: 10%;
     left: 20%;
+  }
+  .overlay img{
+    margin-left: 15px;
   }
   .carousel-item {
     flex: 0 0 calc(100% - 10px);
@@ -548,17 +688,26 @@ p {
 @media (max-width: 480px) {
   .carousel-wrapper {
     max-width: 100%;
-}
-.carousel .slide {
+  }
+  .carousel .slide {
     flex-direction: column;
-}
-.footer-content{
-  position: relative;
-  right: 20px;
-}
+  }
+  .footer-content {
+    position: relative;
+    right: 20px;
+  }
+  .section3{
+    margin: 50px 40px;
+  }
 }
 
 @media screen and (max-width: 400px) {
+  .navbar2 .logo {
+    font-size: 22px;
+  }
+  .navbar2 .nav-links a{
+    font-size: 15px;
+  }
   .content {
     height: 100vh;
   }
@@ -592,14 +741,14 @@ p {
   .overlay h1 {
     font-size: 30px !important;
   }
-  .welcome-img{
+  .welcome-img {
     height: 300px;
   }
-  .footer-content{
+  .footer-content {
     position: relative;
     right: 50px;
     z-index: 0;
     white-space: normal;
-    border-bottom: none!important;
+    border-bottom: none !important;
   }
 }

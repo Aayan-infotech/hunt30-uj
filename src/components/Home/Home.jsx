@@ -4,6 +4,7 @@ import App1 from "../../image/app-1.png";
 import App2 from "../../image/app-2.png";
 import App3 from "../../image/app-3.png";
 import gif1 from "../../image/vid1.gif";
+import Sign from "../../image/Sign.png";
 import gif2 from "../../image/appVid2.gif";
 import gif3 from "../../image/appVid3.gif";
 import installImg from "../../image/install-sec.png";
@@ -19,6 +20,9 @@ import test2 from "../../image/carasuel2.png";
 import test3 from "../../image/carasuel3.png";
 import test4 from "../../image/carasuel4.png";
 import test5 from "../../image/carasuel5.png";
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import "./Home.css";
 
 const testimonials = [
@@ -54,60 +58,80 @@ const testimonials = [
   },
 ];
 
-const getVisibleTestimonials = () => {
-  if (window.innerWidth <= 768) return 1;
-  if (window.innerWidth <= 1024) return 2;
-  return 3;
-};
+const images = [
+  test1,
+  test2,
+  test3,
+  test4,
+  test5,
+];
 
 function Home() { 
-  
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibleItems, setVisibleItems] = useState(getVisibleTestimonials());
 
-  useEffect(() => {
-    const handleResize = () => setVisibleItems(getVisibleTestimonials());
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const handleMouseDown1 = (e) => {
-    e.preventDefault();
-    const startX = e.pageX;
-    const initialIndex = currentIndex;
-
-    const handleMouseMove = (moveEvent) => {
-      const diff = moveEvent.pageX - startX;
-      if (diff > 100) {
-        setCurrentIndex((initialIndex - visibleItems + testimonials.length) % testimonials.length);
-        document.removeEventListener('mousemove', handleMouseMove);
-      } else if (diff < -100) {
-        setCurrentIndex((initialIndex + visibleItems) % testimonials.length);
-        document.removeEventListener('mousemove', handleMouseMove);
-      }
-    };
-
-    const handleMouseUp = () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
-    };
-
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
+  const settings = {
+    centerMode: true, 
+    infinite: true, 
+    centerPadding: '0', 
+    slidesToShow: 3, 
+    speed: 500,
+    arrows: false, 
+    focusOnSelect: true, 
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3, 
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2, 
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1, 
+        },
+      },
+    ],
   };
-  
-    // const prevSlide = () => {  
-    //     setCurrentIndex((prevIndex) =>  
-    //         prevIndex === 0 ? testimonials.length - visibleItems : prevIndex - 1  
-    //     );  
-    // };  
-    
-    // const nextSlide = () => {  
-    //     setCurrentIndex((prevIndex) =>  
-    //         prevIndex === testimonials.length - visibleItems ? 0 : prevIndex + 1  
-    //     );  
-    // };  
-    
+
+  const settings2 = {
+    centerMode: true,
+    infinite: true,
+    centerPadding: '0',
+    slidesToShow: 4, 
+    arrows: false, 
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          centerMode: true,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          centerMode: true,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          centerMode: true,
+          arrows: false,
+        },
+      },
+    ],
+  };
+
   const steps = [
         {
           title: "TAXIDERMY NEAR YOUR LOCATION",
@@ -130,42 +154,6 @@ function Home() {
         },
   ];
 
-  const images = [
-    test1,
-    test2,
-    test3,
-    test4,
-    test5,
-  ];
-
-  const sliderRef = useRef(null);
-  let isDragging = false;
-  let startX, scrollLeft;
-
-  const handleMouseDown = (e) => {
-    isDragging = true;
-    sliderRef.current.style.cursor = "grabbing";
-    startX = e.pageX - sliderRef.current.offsetLeft;
-    scrollLeft = sliderRef.current.scrollLeft;
-  };
-
-  const handleMouseLeave = () => {
-    isDragging = false;
-    sliderRef.current.style.cursor = "grab";
-  };
-
-  const handleMouseUp = () => {
-    isDragging = false;
-    sliderRef.current.style.cursor = "grab";
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX) * 2; 
-    sliderRef.current.scrollLeft = scrollLeft - walk;
-  };
 
   const mainSecRef = useRef(null);
   const appProcessSecRef = useRef(null);
@@ -175,14 +163,60 @@ function Home() {
     ref.current.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Cursor-effect
+  useEffect(() => {
+    const cursor = document.getElementById('customCursor');
+
+    const handleMouseMove = (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+      cursor.style.display = 'block';
+    };
+
+    const handleMouseLeave = () => {
+      cursor.style.display = 'none';
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
+  // VideoTo-playsmooth
+  useEffect(() =>{
+    const video = document.querySelector('.background-video');
+    if (video) {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.error('Video play failed:', error);
+          video.muted = true; 
+          video.play();
+        });
+      }
+    }
+  })
+
+  const handleClick = () => {
+    window.open('https://apps.apple.com/us/app/taxidermy-management/id6670444015', '_blank');
+  }
+
   return (
     <div className="home">
+    {/* Custom Cursor */}      
+    <div className="custom-cursor" id="customCursor"></div>
+
+
       {/* Navbar */}
       <nav className="navbar2 container2">
         <ul className="nav-links">
-          <li><a href="##" onClick={() => scrollToSection(mainSecRef)}>Home</a></li>
-          <li><a href="##" onClick={() => scrollToSection(appProcessSecRef)}>Reviews</a></li>
-          <li><a href="##" onClick={() => scrollToSection(appSecRef)}>About App</a></li>
+          <li><a href="##" onClick={() => scrollToSection(mainSecRef)}>HOME</a><span className="divider"></span></li>
+          <li><a href="##" onClick={() => scrollToSection(appProcessSecRef)}>REVIEWS</a><span className="divider"></span></li>
+          <li><a href="##" onClick={() => scrollToSection(appSecRef)}>ABOUT APP</a><span className="divider"></span></li>
         </ul>
         <div className="logo">
           <span style={{ color: "#FF0000" }}>Taxidermy</span> Management
@@ -216,36 +250,40 @@ function Home() {
             <br />
             First off, our app saves you precious time. No more manual paperwork
             or phone calls. Clients can enter their information directly into
-            the system. Say goodbye to cash or checks. Our app allows clients to
+            the System.<br />
+            Say goodbye to cash or checks. Our app allows clients to
             pay securely through their phones. Ever wonder where an item is in
             production? Our app provides real-time updates. Clients can see
-            exactly where their prized trophy is. Keep clients informed
-            effortlessly. Automated emails notify them of updates - from tanning
+            exactly where their prized trophy is. Keep clients informed effortlessly. Automated emails notify them of updates - from tanning
             to Our app is secure and user-friendly. No need for client accounts
-            or internet worries. So, fellow taxidermists, embrace efficiency,
+            or internet worries.<br />
+            So, fellow taxidermists, embrace efficiency,
             transparency, and client satisfaction. Download our Taxidermy App
-            today. Remember, our app isn't just about saving time; it's about
+            today.<br /> Remember, our app isn't just about saving time; it's about
             preserving the art of taxidermy.
           </p>
-          <h4 style={{ color: "#fff" }}>#Taxidermymanagement</h4>
+          <div className="welcome-bottom">
+            <h4 style={{ color: "#fff" }}>#TAXIDERMYMANAGEMENT</h4>
+            <img src={Sign} alt="sign"></img>
+          </div>
         </div>
       </div>
 
       {/* App-Sec */}
       <div className="app-sec section sectionSpace"  ref={appSecRef}>
-        <h2 style={{ color: "#fff", fontSize: "40px", fontWeight: "400", textAlign: "center",}}> The <span style={{ color: "#FF0000" }}> Taxidermy</span> Management App</h2>
-        <div className="app-content" style={{ display: "flex", justifyContent: "space-between", marginTop: "70px",}}>
+        <h2 style={{ color: "#fff", fontSize: "40px", fontWeight: "400", textAlign: "center",}} className="app-h2"> The <span style={{ color: "#FF0000" }}> Taxidermy</span> Management App</h2>
+        <div className="app-content" style={{ display: "flex", justifyContent: "space-between", marginTop: "40px",}}>
           <div className="app-text">
             <h2 style={{ color: "#FF0000"}}>Our App</h2>
-            <div style={{ marginTop: "40px"}}>
+            <div style={{ marginTop: "40px"}} className="app-div">
               <h2>Streamlined Workflow</h2>
               <p>Efficiently manage taxidermy projects from start to finish with a user-friendly interface.</p>
             </div>
-            <div style={{ marginTop: "40px" }}>
+            <div style={{ marginTop: "40px" }} className="app-div">
               <h2>Enhanced Organization</h2>
               <p> Track orders and schedules in one place to stay organized and productive.</p>
             </div>
-            <div style={{ marginTop: "40px" }}>
+            <div style={{ marginTop: "40px" }} className="app-div">
               <h2>Time-Saving Taxidermy</h2>
               <p>Streamline your taxidermy workflow with Swift Management.</p>
             </div>
@@ -259,7 +297,7 @@ function Home() {
       </div>
 
       {/* AppProcess-Sec */}
-      <div className="three-step-container sectionSpace" ref={appProcessSecRef}>
+      <div className="three-step-container sectionSpace">
         <h2 style={{ fontSize: "40px" }}>
           The <span className="highlight">3 Step</span> Process Of App
         </h2>
@@ -290,8 +328,8 @@ function Home() {
             coordinate with clients and schedule work, Taxidermy Management
             streamlines the process, so you can focus on delivering exceptional
             service.
-          </p>
-          <button onClick={() => window.location.href = 'https://apps.apple.com/us/app/taxidermy-management/id6670444015'}>INSTALL NOW</button>
+          </p><button onClick={handleClick}>INSTALL NOW</button>
+
         </div>
         <img src={installImg} alt="Welcome-page" className="welcome-img" height="400px"/>
       </div>
@@ -313,58 +351,55 @@ function Home() {
       </div>
 
       {/* Client-review  */}
-      <div style={{ textAlign: "center" }}>
-      <h2 style={{ color: "#fff", fontSize: "40px", fontWeight: "400" }}>
-        What <span style={{ color: "#FF0000" }}>Clients</span> Say About Us
+      <div style={{ textAlign: 'center' }} className="client-app section3"  ref={appProcessSecRef}>
+      <h2 style={{ color: '#fff', fontSize: '40px', fontWeight: '400' }}>
+        What <span style={{ color: '#FF0000' }}>Clients</span> Say About Us
       </h2>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "70vh" }}>
-        <div
-          style={{ display: "flex", width: "80%", overflow: "hidden", justifyContent: "center", cursor: "grab" }}
-          onMouseDown={handleMouseDown1}
-        >
-          {testimonials.slice(currentIndex, currentIndex + visibleItems).map((testimonial, index) => (
-            <div key={index} style={{
-              width: "350px", margin: "0 20px", padding: "20px",
-              backgroundColor: "#222", color: "white", borderRadius: "10px",
-              boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)", textAlign: "center", transition: "transform 0.3s ease",
-            }}>
-              <div style={{ display: "flex", gap: "10px" }}>
-                <img src={testimonial.img} alt={testimonial.name} style={{
-                  borderRadius: "50%", marginBottom: "10px",
-                  border: "2px solid white", height: "50px", width: "50px",
-                }} />
-                <h3 style={{ marginBottom: "10px" }}>{testimonial.name}</h3>
-              </div>
-              <p>{testimonial.text}</p>
+      <Slider {...settings} style={{marginRight: '20px'}}>
+        {testimonials.map((testimonial, index) => (
+          <div key={index} className="testimonial-card" style={{
+            width: "350px", margin: "0 10px", padding: "20px", 
+            backgroundColor: "#222", color: "white", borderRadius: "10px",
+            boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)", textAlign: "center",
+          }}>
+            <div style={{ display: "flex", gap: "10px" }}>
+              <img src={testimonial.img} alt={testimonial.name} style={{
+                borderRadius: "50%", marginBottom: "10px",
+                border: "2px solid white", height: "50px", width: "50px",
+              }} />
+              <h3 style={{ marginBottom: "10px" }}>{testimonial.name}</h3>
             </div>
-          ))}
-        </div>
+            <p>{testimonial.text}</p>
+          </div>
+        ))}
+      </Slider>
       </div>
-    </div>
 
       {/* Install-App */}
-      <div className="section" style={{ backgroundColor: "#101010", color: "white", textAlign: "center", padding: "20px 0",}}>
-        <h3>START HUNT</h3>
-        <h2 style={{ marginBottom: "20px",fontSize: '40px' }}>Install <span style={{ color: "red" }}>App</span> Now</h2>
+      <div className="section inst-sec" style={{ backgroundColor: "#101010", color: "white", textAlign: "center", padding: "20px 0" }}>
+      <h3 style={{ fontSize: '1.2rem' }}>START HUNT</h3>
+      <h2 style={{ marginBottom: "20px", fontSize: '40px' }}>Install <span style={{ color: "red" }}>App</span> Now</h2>
 
-        <div className="section section1 rufo" ref={sliderRef} onMouseDown={handleMouseDown} onMouseLeave={handleMouseLeave} onMouseUp={handleMouseUp} onMouseMove={handleMouseMove} style={{ display: "flex", overflowX: "hidden", gap: "10px", padding: "10px", cursor: "grab",}}>
+      <div style={{ padding: "10px" }}>
+        <Slider {...settings2}>
           {images.map((image, index) => (
-            <div key={index} className="carousel-item" style={{borderRadius: "10px", overflow: "hidden", boxShadow: "0 4px 6px rgba(0, 0, 0, 0.5)", }}>
-              <img src={image} alt={`Slide ${index}`} style={{ width: "100%", height: "200px", objectFit: "cover",}}/>
+            <div key={index} className="carousel-item" style={{ borderRadius: "10px", overflow: "hidden", boxShadow: "0 4px 6px rgba(0, 0, 0, 0.5)", padding: "0 10px" }}>
+              <img src={image} alt={`Slide ${index}`} style={{ width: "100%", height: "200px", objectFit: "cover" }} />
             </div>
           ))}
-        </div>
-
-        <div className="links-s" style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "20px", textAlign: "center", gap: "20px"}}>
-          <h4 style={{marginTop: '25px'}}>Join Us On</h4>
-          <a href="https://apps.apple.com/us/app/taxidermy-management/id6670444015" target="_blank" rel="noreferrer">
-            <img src={app1} alt="App Store" style={{ borderRadius: "10px", maxHeight: "65px", maxWidth: "500px" }}/>
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.hunt30.taxidermy" target="_blank" rel="noreferrer">
-            <img src={app2} alt="Google Play" style={{ borderRadius: "10px", maxHeight: "65px", maxWidth: "500px" }}/>
-          </a>
-        </div>
+        </Slider>
       </div>
+
+      <div className="links-s" style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "20px", textAlign: "center", gap: "20px" }}>
+        <h4 style={{ marginTop: '25px' }}>Join Us On</h4>
+        <a href="https://apps.apple.com/us/app/taxidermy-management/id6670444015" target="_blank" rel="noreferrer">
+          <img src={app1} alt="App Store" style={{ borderRadius: "10px", maxHeight: "65px", maxWidth: "500px" }} />
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.hunt30.taxidermy" target="_blank" rel="noreferrer">
+          <img src={app2} alt="Google Play" style={{ borderRadius: "10px", maxHeight: "65px", maxWidth: "500px" }} />
+        </a>
+      </div>
+    </div>
 
       {/* Footer-sec */}
       <footer className="footer section1">
