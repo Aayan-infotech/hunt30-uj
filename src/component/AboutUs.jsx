@@ -1,5 +1,5 @@
 import React from 'react';
-import './DeleteAccount.css';
+import './Aboutus.css';
 
 const AboutUs = () => {
   return (

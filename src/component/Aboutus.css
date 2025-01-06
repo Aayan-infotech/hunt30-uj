@@ -1,0 +1,19 @@
+body {
+    color: #000; /* Ensure the default text color is black */
+    background-color: #fff; /* Set a light background for readability */
+    font-family: Arial, sans-serif; /* Optional: Choose a clean font */
+  }
+  
+  h1, h2, p, ul, li {
+    color: #000; /* Set text color to black for all headings and content */
+    margin: 10px 0;
+  }
+  
+  ul {
+    padding-left: 20px; /* Add some padding for list items */
+  }
+  
+  li {
+    line-height: 1.6; /* Improve readability for list items */
+  }
+  
