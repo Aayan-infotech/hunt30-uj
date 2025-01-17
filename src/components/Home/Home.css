@@ -13,13 +13,19 @@ textarea,
   font-family: "Poppins", sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
+.app-text h2,
+.app-text p,
+.client-app h3,
+.client-app p,
+.inst-sec h2,
+.inst-sec h3,
+.links-s h4,
+.footer-content h2,
+.footer-content h3,
+.footer-content p,
+.footer-bottom p,
+.footer-content strong,
+.sectionSpace h2 {
   color: #fff;
 }
 
@@ -33,21 +39,20 @@ p {
   position: fixed;
   width: 20px;
   height: 20px;
-  background-color: #FF0000;
+  background-color: #ff0000;
   border-radius: 50%;
-  box-shadow: 0 0 10px #FF0000;
+  box-shadow: 0 0 10px #ff0000;
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  display: none; 
+  display: none;
 }
-
 
 .section {
   padding: 0 80px;
 }
 
-.section3{
+.section3 {
   margin: 50px 150px;
 }
 
@@ -113,7 +118,6 @@ p {
   background-color: #8b8a8a;
   margin-left: 20px;
 }
-
 
 /*----- Main-Sec -----*/
 .content {
@@ -198,12 +202,12 @@ p {
   border: 2px solid #ff0000;
 }
 
-.welcome-bottom{
+.welcome-bottom {
   display: flex;
   justify-content: space-between;
 }
 
-.welcome-bottom img{
+.welcome-bottom img {
   height: 150px;
   width: 250px;
 }
@@ -308,7 +312,7 @@ p {
   left: 34%;
 }
 
-.overlay img{
+.overlay img {
   margin-left: 70px;
 }
 
@@ -410,13 +414,13 @@ p {
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 20px 0; 
+  padding: 20px 0;
 }
 
 .testimonial-card {
   width: 350px;
   min-height: 320px;
-  margin: 0 10px; 
+  margin: 0 10px;
   padding: 20px;
   background-color: #222;
   color: white;
@@ -425,34 +429,34 @@ p {
   text-align: left;
 }
 .slick-slide {
-  padding: 0 10px; 
+  padding: 0 10px;
   /* margin-right: 20px; */
 }
 
 @media screen and (max-width: 1250px) {
   .navbar2 {
-    flex-direction:column-reverse; 
-    height: auto; 
+    flex-direction: column-reverse;
+    height: auto;
     padding: 10px 20px;
   }
 
   .navbar2 .logo {
-    position: relative; 
-    left: unset; 
-    transform: unset; 
-    margin-bottom: 10px; 
+    position: relative;
+    left: unset;
+    transform: unset;
+    margin-bottom: 10px;
   }
 
   .navbar2 .nav-links {
     flex-direction: row;
     justify-content: center;
-    align-items: center; 
-    width: 100%; 
+    align-items: center;
+    width: 100%;
     height: auto;
   }
 
   .navbar2 .nav-links li {
-    margin: 0 15px; 
+    margin: 0 15px;
   }
 
   .navbar2 .divider {
@@ -465,27 +469,27 @@ p {
     flex-direction: column;
     gap: 20px;
   }
-  .welcome-sec h2{
-    font-size: 35px!important;
+  .welcome-sec h2 {
+    font-size: 35px !important;
   }
 
-  .welcome-sec p{
-    margin-top: 20px!important;
+  .welcome-sec p {
+    margin-top: 20px !important;
   }
-  .app-sec .app-h2{
-    font-size: 35px!important;
+  .app-sec .app-h2 {
+    font-size: 35px !important;
   }
   .app-content {
     flex-direction: column;
-    margin-top: 0px!important;
+    margin-top: 0px !important;
   }
-  .app-sec .app-div{
-    margin-top: 20px!important;
+  .app-sec .app-div {
+    margin-top: 20px !important;
   }
   .app-text {
     margin-bottom: 20px;
   }
-  .install-sec{
+  .install-sec {
     gap: 20px;
   }
   .three-step-cards {
@@ -503,7 +507,7 @@ p {
   .install-sec {
     flex-direction: column-reverse;
   }
-  .background-video{
+  .background-video {
     height: 400px;
   }
   .overlay img {
@@ -536,19 +540,20 @@ p {
     align-items: center;
     flex-direction: column;
   }
-  .three-step-container, .client-app h2{
-    font-size: 35px!important;
+  .three-step-container,
+  .client-app h2 {
+    font-size: 35px !important;
   }
-  .install-sec h2 span{
-    font-size: 40px!important;
+  .install-sec h2 span {
+    font-size: 40px !important;
   }
-  .inst-sec h2{
-    font-size: 35px!important;
+  .inst-sec h2 {
+    font-size: 35px !important;
   }
-  .install-sec h2{
-    font-size: 35px!important;
+  .install-sec h2 {
+    font-size: 35px !important;
   }
-  .section3{
+  .section3 {
     margin: 50px 50px;
   }
 }
@@ -637,11 +642,11 @@ p {
   div {
     padding: 0;
   }
-  .welcome-bottom{
+  .welcome-bottom {
     flex-direction: column;
   }
-  
-  .welcome-bottom img{
+
+  .welcome-bottom img {
     height: 100px;
     width: 200px;
   }
@@ -653,7 +658,7 @@ p {
     top: 10%;
     left: 20%;
   }
-  .overlay img{
+  .overlay img {
     margin-left: 15px;
   }
   .carousel-item {
@@ -696,7 +701,7 @@ p {
     position: relative;
     right: 20px;
   }
-  .section3{
+  .section3 {
     margin: 50px 40px;
   }
 }
@@ -705,7 +710,7 @@ p {
   .navbar2 .logo {
     font-size: 22px;
   }
-  .navbar2 .nav-links a{
+  .navbar2 .nav-links a {
     font-size: 15px;
   }
   .content {
