@@ -757,3 +757,27 @@ textarea,
     border-bottom: none !important;
   }
 }
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px;
+}

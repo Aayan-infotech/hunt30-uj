@@ -1,4 +1,4 @@
-import React, {useState,useRef, useEffect} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import welcomeP from "../../image/welcome-page.png";
 import App1 from "../../image/app-1.png";
 import App2 from "../../image/app-2.png";
@@ -9,7 +9,7 @@ import gif2 from "../../image/appVid2.gif";
 import gif3 from "../../image/appVid3.gif";
 import installImg from "../../image/install-sec.png";
 import TaxiManagementImg from "../../image/Taxi-managementIcon.png";
-import taxiVideo from '../../image/Taxi-management.mp4';
+import taxiVideo from "../../image/Taxi-management.mp4";
 import User1 from "../../image/user1.png";
 import User2 from "../../image/user2.png";
 import User3 from "../../image/user3.png";
@@ -20,8 +20,8 @@ import test2 from "../../image/carasuel2.png";
 import test3 from "../../image/carasuel3.png";
 import test4 from "../../image/carasuel4.png";
 import test5 from "../../image/carasuel5.png";
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css"; 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Home.css";
 
@@ -58,41 +58,34 @@ const testimonials = [
   },
 ];
 
-const images = [
-  test1,
-  test2,
-  test3,
-  test4,
-  test5,
-];
+const images = [test1, test2, test3, test4, test5];
 
-function Home() { 
-
+function Home() {
   const settings = {
-    centerMode: true, 
-    infinite: true, 
-    centerPadding: '0', 
-    slidesToShow: 3, 
+    centerMode: true,
+    infinite: true,
+    centerPadding: "0",
+    slidesToShow: 3,
     speed: 500,
-    arrows: false, 
-    focusOnSelect: true, 
+    arrows: false,
+    focusOnSelect: true,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3, 
+          slidesToShow: 3,
         },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2, 
+          slidesToShow: 2,
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1, 
+          slidesToShow: 1,
         },
       },
     ],
@@ -101,9 +94,9 @@ function Home() {
   const settings2 = {
     centerMode: true,
     infinite: true,
-    centerPadding: '0',
-    slidesToShow: 4, 
-    arrows: false, 
+    centerPadding: "0",
+    slidesToShow: 4,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -133,101 +126,124 @@ function Home() {
   };
 
   const steps = [
-        {
-          title: "TAXIDERMY NEAR YOUR LOCATION",
-          description:
-            "Locate best taxidermy services near you to preserve your hunting trophies",
-          icon: gif1,
-          rating: 5,
-        },
-        {
-          title: "CUSTOMIZE YOUR TROPHY",
-          description: "Create your custom trophy step by step",
-          icon: gif2,
-          rating: 5,
-        },
-        {
-          title: "PAY AND PLACE THE ORDER",
-          description: "Complete payment and place your order",
-          icon: gif3,
-          rating: 5,
-        },
+    {
+      title: "TAXIDERMY NEAR YOUR LOCATION",
+      description:
+        "Locate best taxidermy services near you to preserve your hunting trophies",
+      icon: gif1,
+      rating: 5,
+    },
+    {
+      title: "CUSTOMIZE YOUR TROPHY",
+      description: "Create your custom trophy step by step",
+      icon: gif2,
+      rating: 5,
+    },
+    {
+      title: "PAY AND PLACE THE ORDER",
+      description: "Complete payment and place your order",
+      icon: gif3,
+      rating: 5,
+    },
   ];
-
 
   const mainSecRef = useRef(null);
   const appProcessSecRef = useRef(null);
   const appSecRef = useRef(null);
 
   const scrollToSection = (ref) => {
-    ref.current.scrollIntoView({ behavior: "smooth" });
+    ref.current.scrollIntoView({behavior: "smooth"});
   };
 
   // Cursor-effect
   useEffect(() => {
-    const cursor = document.getElementById('customCursor');
+    const cursor = document.getElementById("customCursor");
 
     const handleMouseMove = (e) => {
       cursor.style.left = `${e.clientX}px`;
       cursor.style.top = `${e.clientY}px`;
-      cursor.style.display = 'block';
+      cursor.style.display = "block";
     };
 
     const handleMouseLeave = () => {
-      cursor.style.display = 'none';
+      cursor.style.display = "none";
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseleave', handleMouseLeave);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 
   // VideoTo-playsmooth
-  useEffect(() =>{
-    const video = document.querySelector('.background-video');
+  useEffect(() => {
+    const video = document.querySelector(".background-video");
     if (video) {
       const playPromise = video.play();
       if (playPromise !== undefined) {
         playPromise.catch((error) => {
-          console.error('Video play failed:', error);
-          video.muted = true; 
+          console.error("Video play failed:", error);
+          video.muted = true;
           video.play();
         });
       }
     }
-  })
+  });
 
   const handleClick = () => {
-    window.open('https://apps.apple.com/us/app/taxidermy-management/id6670444015', '_blank');
-  }
+    window.open(
+      "https://apps.apple.com/us/app/taxidermy-management/id6670444015",
+      "_blank"
+    );
+  };
 
   return (
     <div className="home">
-    {/* Custom Cursor */}      
-    <div className="custom-cursor" id="customCursor"></div>
-
+      {/* Custom Cursor */}
+      <div className="custom-cursor" id="customCursor"></div>
 
       {/* Navbar */}
       <nav className="navbar2 container2">
         <ul className="nav-links">
-          <li><a href="##" onClick={() => scrollToSection(mainSecRef)}>HOME</a><span className="divider"></span></li>
-          <li><a href="##" onClick={() => scrollToSection(appProcessSecRef)}>REVIEWS</a><span className="divider"></span></li>
-          <li><a href="##" onClick={() => scrollToSection(appSecRef)}>ABOUT APP</a><span className="divider"></span></li>
+          <li>
+            <a href="##" onClick={() => scrollToSection(mainSecRef)}>
+              HOME
+            </a>
+            <span className="divider"></span>
+          </li>
+          <li>
+            <a href="##" onClick={() => scrollToSection(appProcessSecRef)}>
+              REVIEWS
+            </a>
+            <span className="divider"></span>
+          </li>
+          <li>
+            <a href="##" onClick={() => scrollToSection(appSecRef)}>
+              ABOUT APP
+            </a>
+            <span className="divider"></span>
+          </li>
         </ul>
         <div className="logo">
-          <span style={{ color: "#FF0000" }}>Taxidermy</span> Management
+          <span style={{color: "#FF0000"}}>Taxidermy</span> Management
+        </div>
+        <div className="search-box">
+          <input type="text" placeholder="Enter your booking id" className="search-input" />
+          <button className="search-btn">🔍</button>
         </div>
       </nav>
 
       {/* Main-Sec */}
       <div className="content section" ref={mainSecRef}>
         <div className="text-box">
-          <h1 style={{ float: "left"}}><span style={{ color: "#FF0000",  float: "left" }}>HUNTING IS</span><br /> OUR PASSION</h1>
-          <ul style={{ textAlign: "left" }}>
+          <h1 style={{float: "left"}}>
+            <span style={{color: "#FF0000", float: "left"}}>HUNTING IS</span>
+            <br /> OUR PASSION
+          </h1>
+          <ul style={{textAlign: "left"}}>
             <li>Nature's raw connection calls</li>
             <li>Traditions passed through generations</li>
             <li>Challenge tests our limits</li>
@@ -240,55 +256,98 @@ function Home() {
 
       {/* Welcome-Sec */}
       <div className="welcome-sec section sectionSpace">
-        <img src={welcomeP} alt="Welcome-page" className="welcome-img" height="500px"/>
+        <img
+          src={welcomeP}
+          alt="Welcome-page"
+          className="welcome-img"
+          height="500px"
+        />
         <div className="welcome-p">
-          <h2 style={{ color: "#fff", fontSize: "40px", fontWeight: "400" }}>Streamlining <span style={{ color: "#FF0000" }}>Taxidermy</span>{" "}with Our App</h2>
-          <p style={{ color: "#fff", marginTop: "40px" }}>
+          <h2 style={{color: "#fff", fontSize: "40px", fontWeight: "400"}}>
+            Streamlining <span style={{color: "#FF0000"}}>Taxidermy</span> with
+            Our App
+          </h2>
+          <p style={{color: "#fff", marginTop: "40px"}}>
             Welcome to our Taxidermy management app- the ultimate solution for
             modern taxidermists. Let's dive into how our app can revolutionize
             your workflow and boost your business.
             <br />
             First off, our app saves you precious time. No more manual paperwork
             or phone calls. Clients can enter their information directly into
-            the System.<br />
-            Say goodbye to cash or checks. Our app allows clients to
-            pay securely through their phones. Ever wonder where an item is in
+            the System.
+            <br />
+            Say goodbye to cash or checks. Our app allows clients to pay
+            securely through their phones. Ever wonder where an item is in
             production? Our app provides real-time updates. Clients can see
-            exactly where their prized trophy is. Keep clients informed effortlessly. Automated emails notify them of updates - from tanning
+            exactly where their prized trophy is. Keep clients informed
+            effortlessly. Automated emails notify them of updates - from tanning
             to Our app is secure and user-friendly. No need for client accounts
-            or internet worries.<br />
-            So, fellow taxidermists, embrace efficiency,
-            transparency, and client satisfaction. Download our Taxidermy App
-            today.<br /> Remember, our app isn't just about saving time; it's about
+            or internet worries.
+            <br />
+            So, fellow taxidermists, embrace efficiency, transparency, and
+            client satisfaction. Download our Taxidermy App today.
+            <br /> Remember, our app isn't just about saving time; it's about
             preserving the art of taxidermy.
           </p>
           <div className="welcome-bottom">
-            <h4 style={{ color: "#fff" }}>#TAXIDERMYMANAGEMENT</h4>
+            <h4 style={{color: "#fff"}}>#TAXIDERMYMANAGEMENT</h4>
             <img src={Sign} alt="sign"></img>
           </div>
         </div>
       </div>
 
       {/* App-Sec */}
-      <div className="app-sec section sectionSpace"  ref={appSecRef}>
-        <h2 style={{ color: "#fff", fontSize: "40px", fontWeight: "400", textAlign: "center",}} className="app-h2"> The <span style={{ color: "#FF0000" }}> Taxidermy</span> Management App</h2>
-        <div className="app-content" style={{ display: "flex", justifyContent: "space-between", marginTop: "40px",}}>
+      <div className="app-sec section sectionSpace" ref={appSecRef}>
+        <h2
+          style={{
+            color: "#fff",
+            fontSize: "40px",
+            fontWeight: "400",
+            textAlign: "center",
+          }}
+          className="app-h2"
+        >
+          {" "}
+          The <span style={{color: "#FF0000"}}> Taxidermy</span> Management App
+        </h2>
+        <div
+          className="app-content"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            marginTop: "40px",
+          }}
+        >
           <div className="app-text">
-            <h2 style={{ color: "#FF0000"}}>Our App</h2>
-            <div style={{ marginTop: "40px"}} className="app-div">
+            <h2 style={{color: "#FF0000"}}>Our App</h2>
+            <div style={{marginTop: "40px"}} className="app-div">
               <h2>Streamlined Workflow</h2>
-              <p>Efficiently manage taxidermy projects from start to finish with a user-friendly interface.</p>
+              <p>
+                Efficiently manage taxidermy projects from start to finish with
+                a user-friendly interface.
+              </p>
             </div>
-            <div style={{ marginTop: "40px" }} className="app-div">
+            <div style={{marginTop: "40px"}} className="app-div">
               <h2>Enhanced Organization</h2>
-              <p> Track orders and schedules in one place to stay organized and productive.</p>
+              <p>
+                {" "}
+                Track orders and schedules in one place to stay organized and
+                productive.
+              </p>
             </div>
-            <div style={{ marginTop: "40px" }} className="app-div">
+            <div style={{marginTop: "40px"}} className="app-div">
               <h2>Time-Saving Taxidermy</h2>
               <p>Streamline your taxidermy workflow with Swift Management.</p>
             </div>
           </div>
-          <div className="app-img" style={{ display: "flex", gap: "30px", justifyContent: "space-between" }}>
+          <div
+            className="app-img"
+            style={{
+              display: "flex",
+              gap: "30px",
+              justifyContent: "space-between",
+            }}
+          >
             <img src={App1} alt="app-page" className="app-img" height="400px" />
             <img src={App2} alt="app-page" className="app-img" height="400px" />
             <img src={App3} alt="app-page" className="app-img" height="400px" />
@@ -298,7 +357,7 @@ function Home() {
 
       {/* AppProcess-Sec */}
       <div className="three-step-container sectionSpace">
-        <h2 style={{ fontSize: "40px" }}>
+        <h2 style={{fontSize: "40px"}}>
           The <span className="highlight">3 Step</span> Process Of App
         </h2>
         <div className="three-step-cards">
@@ -307,7 +366,9 @@ function Home() {
               <div className="gif-container">
                 <img src={step.icon} alt={`${step.title} gif`} />
               </div>
-              <button className="app-button" style={{marginBottom: '1rem'}}>{step.title}</button>
+              <button className="app-button" style={{marginBottom: "1rem"}}>
+                {step.title}
+              </button>
               <p>{step.description}</p>
               <div className="rating">{"⭐".repeat(step.rating)}</div>
             </div>
@@ -318,8 +379,12 @@ function Home() {
       {/* Install-sec */}
       <div className="install-sec section sectionSpace">
         <div className="welcome-p">
-          <h2 style={{ color: "#fff", fontSize: "40px", fontWeight: "bolder" }}> MAKING THE HUNT <br />{" "}<span style={{ color: "#FF0000", fontSize: '50px' }}>HAPPEN </span></h2>
-          <p style={{ color: "#fff", marginTop: "10px" }}>
+          <h2 style={{color: "#fff", fontSize: "40px", fontWeight: "bolder"}}>
+            {" "}
+            MAKING THE HUNT <br />{" "}
+            <span style={{color: "#FF0000", fontSize: "50px"}}>HAPPEN </span>
+          </h2>
+          <p style={{color: "#fff", marginTop: "10px"}}>
             Taxidermy Management is designed to simplify the entire project
             workflow. It efficiently tracks orders and schedules in one
             centralized location, making it easy to manage your taxidermy
@@ -328,10 +393,15 @@ function Home() {
             coordinate with clients and schedule work, Taxidermy Management
             streamlines the process, so you can focus on delivering exceptional
             service.
-          </p><button onClick={handleClick}>INSTALL NOW</button>
-
+          </p>
+          <button onClick={handleClick}>INSTALL NOW</button>
         </div>
-        <img src={installImg} alt="Welcome-page" className="welcome-img" height="400px"/>
+        <img
+          src={installImg}
+          alt="Welcome-page"
+          className="welcome-img"
+          height="400px"
+        />
       </div>
 
       {/* Taxi-management */}
@@ -343,95 +413,215 @@ function Home() {
         </video>
 
         <div className="overlay">
-          <img src={TaxiManagementImg} alt="Silhouette" className="silhouette title1"/>
-          <h1 className="title1" style={{fontSize: '70px'}}>
-            <span style={{ color: "#FF0000" }}>TAXIDERMY</span><br/> MANAGEMENT
+          <img
+            src={TaxiManagementImg}
+            alt="Silhouette"
+            className="silhouette title1"
+          />
+          <h1 className="title1" style={{fontSize: "70px"}}>
+            <span style={{color: "#FF0000"}}>TAXIDERMY</span>
+            <br /> MANAGEMENT
           </h1>
         </div>
       </div>
 
       {/* Client-review  */}
-      <div style={{ textAlign: 'center' }} className="client-app section3"  ref={appProcessSecRef}>
-      <h2 style={{ color: '#fff', fontSize: '40px', fontWeight: '400' }}>
-        What <span style={{ color: '#FF0000' }}>Clients</span> Say About Us
-      </h2>
-      <Slider {...settings} style={{marginRight: '20px'}}>
-        {testimonials.map((testimonial, index) => (
-          <div key={index} className="testimonial-card" style={{
-            width: "350px", margin: "0 10px", padding: "20px", 
-            backgroundColor: "#222", color: "white", borderRadius: "10px",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)", textAlign: "center",
-          }}>
-            <div style={{ display: "flex", gap: "10px" }}>
-              <img src={testimonial.img} alt={testimonial.name} style={{
-                borderRadius: "50%", marginBottom: "10px",
-                border: "2px solid white", height: "50px", width: "50px",
-              }} />
-              <h3 style={{ marginBottom: "10px" }}>{testimonial.name}</h3>
-            </div>
-            <p>{testimonial.text}</p>
-          </div>
-        ))}
-      </Slider>
-      </div>
-
-      {/* Install-App */}
-      <div className="section inst-sec" style={{ backgroundColor: "#101010", color: "white", textAlign: "center", padding: "20px 0" }}>
-      <h3 style={{ fontSize: '1.2rem' }}>START HUNT</h3>
-      <h2 style={{ marginBottom: "20px", fontSize: '40px' }}>Install <span style={{ color: "red" }}>App</span> Now</h2>
-
-      <div style={{ padding: "10px" }}>
-        <Slider {...settings2}>
-          {images.map((image, index) => (
-            <div key={index} className="carousel-item" style={{ borderRadius: "10px", overflow: "hidden", boxShadow: "0 4px 6px rgba(0, 0, 0, 0.5)", padding: "0 10px" }}>
-              <img src={image} alt={`Slide ${index}`} style={{ width: "100%", height: "200px", objectFit: "cover" }} />
+      <div
+        style={{textAlign: "center"}}
+        className="client-app section3"
+        ref={appProcessSecRef}
+      >
+        <h2 style={{color: "#fff", fontSize: "40px", fontWeight: "400"}}>
+          What <span style={{color: "#FF0000"}}>Clients</span> Say About Us
+        </h2>
+        <Slider {...settings} style={{marginRight: "20px"}}>
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className="testimonial-card"
+              style={{
+                width: "350px",
+                margin: "0 10px",
+                padding: "20px",
+                backgroundColor: "#222",
+                color: "white",
+                borderRadius: "10px",
+                boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
+                textAlign: "center",
+              }}
+            >
+              <div style={{display: "flex", gap: "10px"}}>
+                <img
+                  src={testimonial.img}
+                  alt={testimonial.name}
+                  style={{
+                    borderRadius: "50%",
+                    marginBottom: "10px",
+                    border: "2px solid white",
+                    height: "50px",
+                    width: "50px",
+                  }}
+                />
+                <h3 style={{marginBottom: "10px"}}>{testimonial.name}</h3>
+              </div>
+              <p>{testimonial.text}</p>
             </div>
           ))}
         </Slider>
       </div>
 
-      <div className="links-s" style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "20px", textAlign: "center", gap: "20px" }}>
-        <h4 style={{ marginTop: '25px' }}>Join Us On</h4>
-        <a href="https://apps.apple.com/us/app/taxidermy-management/id6670444015" target="_blank" rel="noreferrer">
-          <img src={app1} alt="App Store" style={{ borderRadius: "10px", maxHeight: "65px", maxWidth: "500px" }} />
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.hunt30.taxidermy" target="_blank" rel="noreferrer">
-          <img src={app2} alt="Google Play" style={{ borderRadius: "10px", maxHeight: "65px", maxWidth: "500px" }} />
-        </a>
+      {/* Install-App */}
+      <div
+        className="section inst-sec"
+        style={{
+          backgroundColor: "#101010",
+          color: "white",
+          textAlign: "center",
+          padding: "20px 0",
+        }}
+      >
+        <h3 style={{fontSize: "1.2rem"}}>START HUNT</h3>
+        <h2 style={{marginBottom: "20px", fontSize: "40px"}}>
+          Install <span style={{color: "red"}}>App</span> Now
+        </h2>
+
+        <div style={{padding: "10px"}}>
+          <Slider {...settings2}>
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className="carousel-item"
+                style={{
+                  borderRadius: "10px",
+                  overflow: "hidden",
+                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.5)",
+                  padding: "0 10px",
+                }}
+              >
+                <img
+                  src={image}
+                  alt={`Slide ${index}`}
+                  style={{width: "100%", height: "200px", objectFit: "cover"}}
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
+
+        <div
+          className="links-s"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "20px",
+            textAlign: "center",
+            gap: "20px",
+          }}
+        >
+          <h4 style={{marginTop: "25px"}}>Join Us On</h4>
+          <a
+            href="https://apps.apple.com/us/app/taxidermy-management/id6670444015"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={app1}
+              alt="App Store"
+              style={{
+                borderRadius: "10px",
+                maxHeight: "65px",
+                maxWidth: "500px",
+              }}
+            />
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.hunt30.taxidermy"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={app2}
+              alt="Google Play"
+              style={{
+                borderRadius: "10px",
+                maxHeight: "65px",
+                maxWidth: "500px",
+              }}
+            />
+          </a>
+        </div>
       </div>
-    </div>
 
       {/* Footer-sec */}
       <footer className="footer section1">
-        <div className="footer-content"  style={{ borderBottom: '1px solid white', paddingBottom: '10px' }}>
+        <div
+          className="footer-content"
+          style={{borderBottom: "1px solid white", paddingBottom: "10px"}}
+        >
           <div className="footer-brand">
-            <h2><span className="highlight">Taxidermy<br /></span> Management</h2>
-            <p>Streamline your taxidermy projects with ease using Taxidermy Management.</p>
+            <h2>
+              <span className="highlight">
+                Taxidermy
+                <br />
+              </span>{" "}
+              Management
+            </h2>
+            <p>
+              Streamline your taxidermy projects with ease using Taxidermy
+              Management.
+            </p>
           </div>
           <div className="footer-contact">
-            <h3>Contact <span className="highlight">Us</span></h3>
+            <h3>
+              Contact <span className="highlight">Us</span>
+            </h3>
             <div className="footer-contact-details">
               <div className="contact-item">
                 <strong>PHONE:</strong>
-                <p style={{width: '120px'}}><a href="tel:+15025595867">+1 5025595867</a></p>
+                <p style={{width: "120px"}}>
+                  <a href="tel:+15025595867">+1 5025595867</a>
+                </p>
               </div>
               <div className="contact-item">
                 <strong>EMAIL:</strong>
-                <p><a href="mailto:hunt30apps@gmail.com" style={{whiteSpace: 'normal'}}>hunt30apps@gmail.com</a></p>
+                <p>
+                  <a
+                    href="mailto:hunt30apps@gmail.com"
+                    style={{whiteSpace: "normal"}}
+                  >
+                    hunt30apps@gmail.com
+                  </a>
+                </p>
               </div>
               <div className="contact-item">
                 <strong>ADDRESS:</strong>
-                <p style={{width: '350px'}}>889 Colloredo Blvd. Shelbyville, TN 37160</p>
+                <p style={{width: "350px"}}>
+                  889 Colloredo Blvd. Shelbyville, TN 37160
+                </p>
               </div>
             </div>
           </div>
         </div>
         <div className="footer-bottom">
           <p>Copyright © 2024 Taxidermy Management, All Rights Reserved</p>
-          <p>Developed By{" "}<a href="https://aayaninfotech.com/" target="_blank" rel="noopener noreferrer" style={{ fontWeight: "bold", textDecoration: "none", color: "inherit" }}>Aayan Infotech</a></p>
+          <p>
+            Developed By{" "}
+            <a
+              href="https://aayaninfotech.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontWeight: "bold",
+                textDecoration: "none",
+                color: "inherit",
+              }}
+            >
+              Aayan Infotech
+            </a>
+          </p>
         </div>
       </footer>
-
     </div>
   );
 }
