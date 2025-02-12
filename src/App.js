@@ -8,6 +8,7 @@ import DeleteAccountPolicy from'./component/DeleteAccount'
 import TermsAndConditions from'./component/TermsCondition'
 import AboutUs from'./component/AboutUs'
 import Home from './components/Home/Home';
+import Detail from './components/Detail/detail';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/deletePolicy" element={<DeleteAccountPolicy />} />
             <Route path="/termCondition" element={<TermsAndConditions />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/booking/:id" element={<Detail />} />
             {/* <Route path="/home" element={<Home />} /> */}
             <Route path="/" element={<Home />} />
           </Routes>
