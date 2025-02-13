@@ -22,7 +22,7 @@ function App() {
             <Route path="/deletePolicy" element={<DeleteAccountPolicy />} />
             <Route path="/termCondition" element={<TermsAndConditions />} />
             <Route path="/about" element={<AboutUs />} />
-            <Route path="/booking/:id" element={<Detail />} />
+            <Route path="/booking" element={<Detail />} />
             {/* <Route path="/home" element={<Home />} /> */}
             <Route path="/" element={<Home />} />
           </Routes>

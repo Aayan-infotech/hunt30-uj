@@ -206,7 +206,8 @@ function Home() {
 
   const navigate = useNavigate();
   const [data, setData] = useState("");
-  const handleData = async () => {
+  const handleData = async (e) => {
+    e.preventDefault();
     if (!data.trim()) {
       toast.error("Please enter a valid ID");
       return;
@@ -220,7 +221,8 @@ function Home() {
       if (response.data.data.length !== 0) {
         toast.success("ID has been found!");
         setData("");
-        setTimeout(() => navigate(`/booking/${data}`), 1000);
+        setTimeout(() => navigate(`/booking`), 1000);
+        localStorage.setItem("orderID", data);
       } else {
         toast.error("ID not found");
         setData("");
@@ -262,16 +264,18 @@ function Home() {
             <span style={{ color: "#FF0000" }}>Taxidermy</span> Management
           </div>
           <div className="search-box">
-            <input
-              type="text"
-              placeholder="Enter your booking id"
-              className="search-input"
-              value={data}
-              onChange={(e) => setData(e.target.value)}
-            />
-            <button className="search-btn" onClick={handleData}>
-              🔍
-            </button>
+            <form onSubmit={handleData}>
+              <input
+                type="text"
+                placeholder="Enter your booking id"
+                className="search-input"
+                value={data}
+                onChange={(e) => setData(e.target.value)}
+              />
+              <button className="search-btn" onClick={handleData} type="submit">
+                🔍
+              </button>
+            </form>
           </div>
         </nav>
 

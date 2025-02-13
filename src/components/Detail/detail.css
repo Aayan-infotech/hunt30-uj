@@ -2,14 +2,17 @@
   max-width: 100%;
 }
 .w-100 {
-    width: 100% !important;
-  }
+  width: 100% !important;
+}
 .text-light {
   color: #fff !important;
 }
 .detail .card {
   border-radius: 30px;
   border: 0;
+}
+.text-center {
+  text-align: center;
 }
 .detail {
   background-image: url(./bg.png);
@@ -142,4 +145,13 @@ th {
     height: 100%;
     padding: 50px 10px;
   }
+  .w-85 {
+    width: 100% !important;
+  }
+}
+.w-85 {
+  width: 85% !important;
+}
+.mx-2{
+  margin: 0 10px;
 }
