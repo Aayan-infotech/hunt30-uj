@@ -6,6 +6,7 @@ import "./detail.css";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import { TiMessageTyping } from "react-icons/ti";
 
 const style = {
   position: "absolute",
@@ -66,13 +67,13 @@ export default function Detail() {
               <div className="center">
                 <div className="card mw-100">
                   <div className="between my-3">
-                    <h2 className="text-light text-center">Order Details</h2>
+                    <h2 className="text-light text-center w-95">Order Details</h2>
                     <div className="welcome-p">
                       <button
                         onClick={handleOpen}
-                        style={{ padding: "10px 10px", width: "100%" }}
+                        style={{ padding: "5px 10px", width: "100%" }}
                       >
-                        Open modal
+                        <TiMessageTyping />
                       </button>
                     </div>
                   </div>
