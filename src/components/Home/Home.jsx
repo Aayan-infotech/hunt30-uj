@@ -216,12 +216,14 @@ function Home() {
       const response = await axios.get(
         `http://44.196.64.110:3002/api/searchOrder/${data}`
       );
-
-      if (response.data !== []) {
+      console.log(response.data.data);
+      if (response.data.data.length !== 0) {
         toast.success("ID has been found!");
+        setData("");
         setTimeout(() => navigate(`/booking/${data}`), 1000);
       } else {
         toast.error("ID not found");
+        setData("");
       }
     } catch (error) {
       toast.error("Error fetching data. Please try again.");
