@@ -215,7 +215,7 @@ function Home() {
 
     try {
       const response = await axios.get(
-        `http://44.196.64.110:3002/api/searchOrder/${data}`
+        `https://www.taxidermyvendor.hunt30.com/api/searchOrder/${data}`
       );
       console.log(response.data.data);
       if (response.data.data.length !== 0) {
