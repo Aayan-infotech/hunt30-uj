@@ -47,6 +47,13 @@ export default function Detail() {
     fetchOrder();
   }, [orderId]);
 
+  const getStepStatus = (orderStatus, step) => {
+    const statusOrder = ["pending", "shipped", "delivered"];
+    const currentIndex = statusOrder.indexOf(orderStatus);
+    const stepIndex = statusOrder.indexOf(step);
+    return stepIndex <= currentIndex ? "completed" : "active";
+  };
+
   if (loading)
     return (
       <div className="detail">
@@ -67,7 +74,9 @@ export default function Detail() {
               <div className="center">
                 <div className="card mw-100">
                   <div className="between my-3">
-                    <h2 className="text-light text-center w-95">Order Details</h2>
+                    <h2 className="text-light text-center w-95">
+                      Order Details
+                    </h2>
                     <div className="welcome-p">
                       <button
                         onClick={handleOpen}
@@ -148,39 +157,33 @@ export default function Detail() {
                   <div className="between">
                     <div className="w-85">
                       <div className="stepper-wrapper ">
-                        {order.status === "pending" ? (
-                          <div className="stepper-item completed">
-                            <div className="step-counter"></div>
-                            <div className="step-name">Processing</div>
-                          </div>
-                        ) : (
-                          <div className="stepper-item active">
-                            <div className="step-counter"></div>
-                            <div className="step-name">Processing</div>
-                          </div>
-                        )}
-                        {order.status === "shipped" ? (
-                          <div className="stepper-item completed">
-                            <div className="step-counter"></div>
-                            <div className="step-name">In Progress</div>
-                          </div>
-                        ) : (
-                          <div className="stepper-item active">
-                            <div className="step-counter"></div>
-                            <div className="step-name">In Progress</div>
-                          </div>
-                        )}
-                        {order.status === "confirmed" ? (
-                          <div className="stepper-item completed">
-                            <div className="step-counter"></div>
-                            <div className="step-name">Completed</div>
-                          </div>
-                        ) : (
-                          <div className="stepper-item active">
-                            <div className="step-counter"></div>
-                            <div className="step-name">Completed</div>
-                          </div>
-                        )}
+                        <div
+                          className={`stepper-item ${getStepStatus(
+                            order.status,
+                            "pending"
+                          )}`}
+                        >
+                          <div className="step-counter"></div>
+                          <div className="step-name">Processing</div>
+                        </div>
+                        <div
+                          className={`stepper-item ${getStepStatus(
+                            order.status,
+                            "shipped"
+                          )}`}
+                        >
+                          <div className="step-counter"></div>
+                          <div className="step-name">In Progress</div>
+                        </div>
+                        <div
+                          className={`stepper-item ${getStepStatus(
+                            order.status,
+                            "delivered"
+                          )}`}
+                        >
+                          <div className="step-counter"></div>
+                          <div className="step-name">Completed</div>
+                        </div>
                       </div>
                     </div>
                     <div className="text-center">
@@ -218,51 +221,43 @@ export default function Detail() {
 
                   {/* Shipping Detail */}
                   {show ? (
-                    <div className="stepper-wrapper">
-                      {order.status === "pending" ? (
-                        <div className="stepper-item completed">
-                          <div className="step-counter"></div>
-                          <div className="step-name">Order Recieved</div>
-                        </div>
-                      ) : (
-                        <div className="stepper-item active">
-                          <div className="step-counter"></div>
-                          <div className="step-name">Order Recieved</div>
-                        </div>
-                      )}
-                      {order.status === "shipped" ? (
-                        <div className="stepper-item completed">
-                          <div className="step-counter"></div>
-                          <div className="step-name">In Production</div>
-                        </div>
-                      ) : (
-                        <div className="stepper-item active">
-                          <div className="step-counter"></div>
-                          <div className="step-name">In Production</div>
-                        </div>
-                      )}
-                      {order.status === "shipped" ? (
-                        <div className="stepper-item completed">
-                          <div className="step-counter"></div>
-                          <div className="step-name">Detail Work</div>
-                        </div>
-                      ) : (
-                        <div className="stepper-item active">
-                          <div className="step-counter"></div>
-                          <div className="step-name">Detail Work</div>
-                        </div>
-                      )}
-                      {order.status === "confirmed" ? (
-                        <div className="stepper-item completed">
-                          <div className="step-counter"></div>
-                          <div className="step-name">Trophy Completed</div>
-                        </div>
-                      ) : (
-                        <div className="stepper-item active">
-                          <div className="step-counter"></div>
-                          <div className="step-name">Trophy Completed</div>
-                        </div>
-                      )}
+                    <div className="stepper-wrapper ">
+                      <div
+                        className={`stepper-item ${getStepStatus(
+                          order.status,
+                          "pending"
+                        )}`}
+                      >
+                        <div className="step-counter"></div>
+                        <div className="step-name">Order Recieved</div>
+                      </div>
+                      <div
+                        className={`stepper-item ${getStepStatus(
+                          order.status,
+                          "shipped"
+                        )}`}
+                      >
+                        <div className="step-counter"></div>
+                        <div className="step-name">In Production</div>
+                      </div>
+                      <div
+                        className={`stepper-item ${getStepStatus(
+                          order.status,
+                          "shipped"
+                        )}`}
+                      >
+                        <div className="step-counter"></div>
+                        <div className="step-name">Detail Work</div>
+                      </div>
+                      <div
+                        className={`stepper-item ${getStepStatus(
+                          order.status,
+                          "delivered"
+                        )}`}
+                      >
+                        <div className="step-counter"></div>
+                        <div className="step-name">Trophy Completed</div>
+                      </div>
                     </div>
                   ) : null}
                 </div>
