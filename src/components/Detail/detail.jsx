@@ -34,7 +34,7 @@ export default function Detail() {
     const fetchOrder = async () => {
       try {
         const response = await axios.get(
-          `http://44.196.64.110:3002/api/searchOrder/${orderId}`
+          `https://www.taxidermyvendor.hunt30.com/api/searchOrder/${orderId}`
         );
         setOrder(response.data.data[0]);
       } catch (error) {

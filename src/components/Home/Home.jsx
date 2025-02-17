@@ -217,7 +217,6 @@ function Home() {
       const response = await axios.get(
         `https://www.taxidermyvendor.hunt30.com/api/searchOrder/${data}`
       );
-      console.log(response.data.data);
       if (response.data.data.length !== 0) {
         toast.success("ID has been found!");
         setData("");
