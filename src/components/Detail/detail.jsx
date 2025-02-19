@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { TiMessageTyping } from "react-icons/ti";
+import ChatBox from "./chatBox";
 
 const style = {
   position: "absolute",
@@ -281,12 +282,7 @@ export default function Detail() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+        <ChatBox onClose={() => setOpen(false)} />
         </Box>
       </Modal>
     </>
