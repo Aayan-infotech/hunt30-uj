@@ -102,8 +102,19 @@
     right: 0 !important;
     left: auto !important;
     display: flex;
-    transform: translate(-46%, -54%);
   }
+
+  @media screen and (max-width: 1024px) { 
+    .css-1wnsr1i {
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media screen and (max-width: 768px) { 
+    .css-1wnsr1i {
+        transform: translate(-55%, -55%);
+    }
+}
 
   .close-button {
     margin-left: auto;
