@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import {useParams, useNavigate} from "react-router-dom";
 import axios from "axios";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import {IoIosArrowDown, IoIosArrowUp} from "react-icons/io";
 import "./detail.css";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import { TiMessageTyping } from "react-icons/ti";
+import {TiMessageTyping} from "react-icons/ti";
+import ChatBox from "./chatBox";
 
 const style = {
   position: "absolute",
@@ -21,20 +22,23 @@ const style = {
 };
 export default function Detail() {
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const navigate = useNavigate();
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
   const [show, setShow] = useState(false);
-  const orderId = localStorage.getItem("orderID");
+  const localorderId = localStorage.getItem("orderID");
   const [showTable, setShowTable] = useState(false);
+  const [receiverId, setReceiverId] = useState("");
+  const [senderId, setSenderId] = useState("");
+  const [orderId, setOrderId] = useState("");
+  const [bookingId, setBookingId] = useState("");
+
 
   useEffect(() => {
     const fetchOrder = async () => {
       try {
         const response = await axios.get(
-          `https://www.taxidermyvendor.hunt30.com/api/searchOrder/${orderId}`
+          `https://www.taxidermyvendor.hunt30.com/api/searchOrder/${localorderId}`
         );
         setOrder(response.data.data[0]);
       } catch (error) {
@@ -45,13 +49,28 @@ export default function Detail() {
     };
 
     fetchOrder();
-  }, [orderId]);
+  }, [localorderId]);
 
   const getStepStatus = (orderStatus, step) => {
     const statusOrder = ["pending", "shipped", "delivered"];
     const currentIndex = statusOrder.indexOf(orderStatus);
     const stepIndex = statusOrder.indexOf(step);
     return stepIndex <= currentIndex ? "completed" : "active";
+  };
+
+  const handleChatOpen = (order) => {
+console.log(order);
+
+    setOrderId(() => order.orderId);
+    setSenderId(() => order.userId);
+    setReceiverId(() => order.vendorId);
+    setBookingId(()=>order.bookingId)
+    setOpen(true);
+  };
+
+  const handleChatClose = () => {
+    setOpen(false);
+    setOrderId(null);
   };
 
   if (loading)
@@ -79,8 +98,8 @@ export default function Detail() {
                     </h2>
                     <div className="welcome-p">
                       <button
-                        onClick={handleOpen}
-                        style={{ padding: "5px 10px", width: "100%" }}
+                        onClick={() => handleChatOpen(order)}
+                        style={{padding: "5px 10px", width: "100%"}}
                       >
                         <TiMessageTyping />
                       </button>
@@ -103,7 +122,7 @@ export default function Detail() {
                     <h2
                       className="text-light d-flex align-items-center cursor-pointer"
                       onClick={() => setShowTable(!showTable)}
-                      style={{ cursor: "pointer" }}
+                      style={{cursor: "pointer"}}
                     >
                       Payment History{" "}
                       {showTable ? (
@@ -116,7 +135,7 @@ export default function Detail() {
                     {showTable && (
                       <table
                         className="table mt-2 w-85"
-                        style={{ margin: "auto" }}
+                        style={{margin: "auto"}}
                       >
                         <thead>
                           <tr>
@@ -131,7 +150,7 @@ export default function Detail() {
                               <td>
                                 {new Date(payment.date).toLocaleDateString()}
                               </td>
-                              <td style={{ textTransform: "capitalize" }}>
+                              <td style={{textTransform: "capitalize"}}>
                                 {payment.paymentMethod}
                               </td>
                               <td>{payment.amount ?? "00"}</td>
@@ -275,18 +294,20 @@ export default function Detail() {
       </div>
 
       <Modal
-        open={open}
-        onClose={handleClose}
+       open={open}
+       onClose={handleChatClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          <ChatBox
+            open={open}
+            onClose={handleChatClose}
+            orderId={orderId}
+            senderId={senderId}
+            receiverId={receiverId}
+            bookingId={bookingId}
+          />
         </Box>
       </Modal>
     </>
