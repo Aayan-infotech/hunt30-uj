@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, {useState, useRef, useEffect} from "react";
 import welcomeP from "../../image/welcome-page.png";
 import App1 from "../../image/app-1.png";
 import App2 from "../../image/app-2.png";
@@ -24,8 +24,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Home.css";
-import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import {useNavigate} from "react-router-dom";
+import {ToastContainer, toast} from "react-toastify";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -156,7 +156,7 @@ function Home() {
   const appSecRef = useRef(null);
 
   const scrollToSection = (ref) => {
-    ref.current.scrollIntoView({ behavior: "smooth" });
+    ref.current.scrollIntoView({behavior: "smooth"});
   };
 
   // Cursor-effect
@@ -260,7 +260,7 @@ function Home() {
             </li>
           </ul>
           <div className="logo">
-            <span style={{ color: "#FF0000" }}>Taxidermy</span> Management
+            <span style={{color: "#FF0000"}}>Taxidermy</span> Management
           </div>
           <div className="search-box">
             <form onSubmit={handleData}>
@@ -281,13 +281,11 @@ function Home() {
         {/* Main-Sec */}
         <div className="content section" ref={mainSecRef}>
           <div className="text-box">
-            <h1 style={{ float: "left" }}>
-              <span style={{ color: "#FF0000", float: "left" }}>
-                HUNTING IS
-              </span>
+            <h1 style={{float: "left"}}>
+              <span style={{color: "#FF0000", float: "left"}}>HUNTING IS</span>
               <br /> OUR PASSION
             </h1>
-            <ul style={{ textAlign: "left" }}>
+            <ul style={{textAlign: "left"}}>
               <li>Nature's raw connection calls</li>
               <li>Traditions passed through generations</li>
               <li>Challenge tests our limits</li>
@@ -307,11 +305,11 @@ function Home() {
             height="500px"
           />
           <div className="welcome-p">
-            <h2 style={{ color: "#fff", fontSize: "40px", fontWeight: "400" }}>
-              Streamlining <span style={{ color: "#FF0000" }}>Taxidermy</span>{" "}
+            <h2 style={{color: "#fff", fontSize: "40px", fontWeight: "400"}}>
+              Streamlining <span style={{color: "#FF0000"}}>Taxidermy</span>{" "}
               with Our App
             </h2>
-            <p style={{ color: "#fff", marginTop: "40px" }}>
+            <p style={{color: "#fff", marginTop: "40px"}}>
               Welcome to our Taxidermy management app- the ultimate solution for
               modern taxidermists. Let's dive into how our app can revolutionize
               your workflow and boost your business.
@@ -334,7 +332,7 @@ function Home() {
               preserving the art of taxidermy.
             </p>
             <div className="welcome-bottom">
-              <h4 style={{ color: "#fff" }}>#TAXIDERMYMANAGEMENT</h4>
+              <h4 style={{color: "#fff"}}>#TAXIDERMYMANAGEMENT</h4>
               <img src={Sign} alt="sign"></img>
             </div>
           </div>
@@ -352,7 +350,7 @@ function Home() {
             className="app-h2"
           >
             {" "}
-            The <span style={{ color: "#FF0000" }}> Taxidermy</span> Management
+            The <span style={{color: "#FF0000"}}> Taxidermy</span> Management
             App
           </h2>
           <div
@@ -364,15 +362,15 @@ function Home() {
             }}
           >
             <div className="app-text">
-              <h2 style={{ color: "#FF0000" }}>Our App</h2>
-              <div style={{ marginTop: "40px" }} className="app-div">
+              <h2 style={{color: "#FF0000"}}>Our App</h2>
+              <div style={{marginTop: "40px"}} className="app-div">
                 <h2>Streamlined Workflow</h2>
                 <p>
                   Efficiently manage taxidermy projects from start to finish
                   with a user-friendly interface.
                 </p>
               </div>
-              <div style={{ marginTop: "40px" }} className="app-div">
+              <div style={{marginTop: "40px"}} className="app-div">
                 <h2>Enhanced Organization</h2>
                 <p>
                   {" "}
@@ -380,7 +378,7 @@ function Home() {
                   productive.
                 </p>
               </div>
-              <div style={{ marginTop: "40px" }} className="app-div">
+              <div style={{marginTop: "40px"}} className="app-div">
                 <h2>Time-Saving Taxidermy</h2>
                 <p>Streamline your taxidermy workflow with Swift Management.</p>
               </div>
@@ -417,7 +415,7 @@ function Home() {
 
         {/* AppProcess-Sec */}
         <div className="three-step-container sectionSpace">
-          <h2 style={{ fontSize: "40px" }}>
+          <h2 style={{fontSize: "40px"}}>
             The <span className="highlight">3 Step</span> Process Of App
           </h2>
           <div className="three-step-cards">
@@ -426,7 +424,7 @@ function Home() {
                 <div className="gif-container">
                   <img src={step.icon} alt={`${step.title} gif`} />
                 </div>
-                <button className="app-button" style={{ marginBottom: "1rem" }}>
+                <button className="app-button" style={{marginBottom: "1rem"}}>
                   {step.title}
                 </button>
                 <p>{step.description}</p>
@@ -439,16 +437,12 @@ function Home() {
         {/* Install-sec */}
         <div className="install-sec section sectionSpace">
           <div className="welcome-p">
-            <h2
-              style={{ color: "#fff", fontSize: "40px", fontWeight: "bolder" }}
-            >
+            <h2 style={{color: "#fff", fontSize: "40px", fontWeight: "bolder"}}>
               {" "}
               MAKING THE HUNT <br />{" "}
-              <span style={{ color: "#FF0000", fontSize: "50px" }}>
-                HAPPEN{" "}
-              </span>
+              <span style={{color: "#FF0000", fontSize: "50px"}}>HAPPEN </span>
             </h2>
-            <p style={{ color: "#fff", marginTop: "10px" }}>
+            <p style={{color: "#fff", marginTop: "10px"}}>
               Taxidermy Management is designed to simplify the entire project
               workflow. It efficiently tracks orders and schedules in one
               centralized location, making it easy to manage your taxidermy
@@ -482,8 +476,8 @@ function Home() {
               alt="Silhouette"
               className="silhouette title1"
             />
-            <h1 className="title1" style={{ fontSize: "70px" }}>
-              <span style={{ color: "#FF0000" }}>TAXIDERMY</span>
+            <h1 className="title1" style={{fontSize: "70px"}}>
+              <span style={{color: "#FF0000"}}>TAXIDERMY</span>
               <br /> MANAGEMENT
             </h1>
           </div>
@@ -491,14 +485,14 @@ function Home() {
 
         {/* Client-review  */}
         <div
-          style={{ textAlign: "center" }}
+          style={{textAlign: "center"}}
           className="client-app section3"
           ref={appProcessSecRef}
         >
-          <h2 style={{ color: "#fff", fontSize: "40px", fontWeight: "400" }}>
-            What <span style={{ color: "#FF0000" }}>Clients</span> Say About Us
+          <h2 style={{color: "#fff", fontSize: "40px", fontWeight: "400"}}>
+            What <span style={{color: "#FF0000"}}>Clients</span> Say About Us
           </h2>
-          <Slider {...settings} style={{ marginRight: "20px" }}>
+          <Slider {...settings} style={{marginRight: "20px"}}>
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
@@ -514,7 +508,7 @@ function Home() {
                   textAlign: "center",
                 }}
               >
-                <div style={{ display: "flex", gap: "10px" }}>
+                <div style={{display: "flex", gap: "10px"}}>
                   <img
                     src={testimonial.img}
                     alt={testimonial.name}
@@ -526,7 +520,7 @@ function Home() {
                       width: "50px",
                     }}
                   />
-                  <h3 style={{ marginBottom: "10px" }}>{testimonial.name}</h3>
+                  <h3 style={{marginBottom: "10px"}}>{testimonial.name}</h3>
                 </div>
                 <p>{testimonial.text}</p>
               </div>
@@ -544,12 +538,12 @@ function Home() {
             padding: "20px 0",
           }}
         >
-          <h3 style={{ fontSize: "1.2rem" }}>START HUNT</h3>
-          <h2 style={{ marginBottom: "20px", fontSize: "40px" }}>
-            Install <span style={{ color: "red" }}>App</span> Now
+          <h3 style={{fontSize: "1.2rem"}}>START HUNT</h3>
+          <h2 style={{marginBottom: "20px", fontSize: "40px"}}>
+            Install <span style={{color: "red"}}>App</span> Now
           </h2>
 
-          <div style={{ padding: "10px" }}>
+          <div style={{padding: "10px"}}>
             <Slider {...settings2}>
               {images.map((image, index) => (
                 <div
@@ -587,7 +581,7 @@ function Home() {
               gap: "20px",
             }}
           >
-            <h4 style={{ marginTop: "25px" }}>Join Us On</h4>
+            <h4 style={{marginTop: "25px"}}>Join Us On</h4>
             <a
               href="https://apps.apple.com/us/app/taxidermy-management/id6670444015"
               target="_blank"
@@ -625,7 +619,7 @@ function Home() {
         <footer className="footer section1">
           <div
             className="footer-content"
-            style={{ borderBottom: "1px solid white", paddingBottom: "10px" }}
+            style={{borderBottom: "1px solid white", paddingBottom: "10px"}}
           >
             <div className="footer-brand">
               <h2>
@@ -648,15 +642,23 @@ function Home() {
                 <div className="contact-item">
                   <strong>PHONE:</strong>
                   <p style={{ width: "120px" }}>
-                    <a href="tel:+15025595867">+1 5025595867</a>
+                    <a style={{whiteSpace: "nowrap"}} href="tel:+15025595867">+1 (502)655-9867</a>
                   </p>
+                  {/* <p>
+                    <a
+                      style={{whiteSpace: "nowrap", width: "auto", margin: 0}}
+                      href="tel:+15025595867"
+                    >
+                      +1 (502) 655-9867
+                    </a>
+                  </p> */}
                 </div>
                 <div className="contact-item">
                   <strong>EMAIL:</strong>
                   <p>
                     <a
                       href="mailto:hunt30apps@gmail.com"
-                      style={{ whiteSpace: "normal" }}
+                      style={{whiteSpace: "normal"}}
                     >
                       hunt30apps@gmail.com
                     </a>
@@ -664,7 +666,7 @@ function Home() {
                 </div>
                 <div className="contact-item">
                   <strong>ADDRESS:</strong>
-                  <p style={{ width: "350px" }}>
+                  <p style={{width: "350px"}}>
                     889 Colloredo Blvd. Shelbyville, TN 37160
                   </p>
                 </div>
