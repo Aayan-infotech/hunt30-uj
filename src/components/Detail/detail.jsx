@@ -52,15 +52,13 @@ export default function Detail() {
   }, [localorderId]);
 
   const getStepStatus = (orderStatus, step) => {
-    const statusOrder = ["pending", "shipped", "delivered"];
+    const statusOrder = ["pending","confirmed", "shipped", "delivered"];
     const currentIndex = statusOrder.indexOf(orderStatus);
     const stepIndex = statusOrder.indexOf(step);
     return stepIndex <= currentIndex ? "completed" : "active";
   };
 
   const handleChatOpen = (order) => {
-console.log(order);
-
     setOrderId(() => order.orderId);
     setSenderId(() => order.userId);
     setReceiverId(() => order.vendorId);
@@ -179,7 +177,7 @@ console.log(order);
                         <div
                           className={`stepper-item ${getStepStatus(
                             order.status,
-                            "pending"
+                            "confirmed"
                           )}`}
                         >
                           <div className="step-counter"></div>
@@ -253,7 +251,7 @@ console.log(order);
                       <div
                         className={`stepper-item ${getStepStatus(
                           order.status,
-                          "shipped"
+                          "confirmed"
                         )}`}
                       >
                         <div className="step-counter"></div>
