@@ -356,7 +356,7 @@ textarea,
 .footer-content {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   gap: 20px;
 }
 
@@ -391,7 +391,24 @@ textarea,
   display: flex;
   gap: 10px;
 }
-
+@media screen and (max-width: 1350px) {
+  .footer-contact-details {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 767px) {
+  .footer-bottom {
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    align-items: center !important;
+    gap: 10px;
+    font-size: 14px;
+  }
+}
 .contact-item {
   margin: 10px;
   /* min-width: 200px; */
@@ -419,7 +436,7 @@ textarea,
 
 .testimonial-card {
   width: 350px;
-  min-height: 320px;
+  min-height: 350px;
   margin: 0 10px;
   padding: 20px;
   background-color: #222;
