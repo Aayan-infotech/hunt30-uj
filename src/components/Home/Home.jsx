@@ -641,17 +641,17 @@ function Home() {
               <div className="footer-contact-details">
                 <div className="contact-item">
                   <strong>PHONE:</strong>
-                  <p style={{ width: "120px" }}>
+                  {/* <p style={{ width: "120px" }}>
                     <a style={{whiteSpace: "nowrap"}} href="tel:+15025595867">+1 (502)655-9867</a>
-                  </p>
-                  {/* <p>
+                  </p> */}
+                  <p>
                     <a
                       style={{whiteSpace: "nowrap", width: "auto", margin: 0}}
                       href="tel:+15025595867"
                     >
                       +1 (502) 655-9867
                     </a>
-                  </p> */}
+                  </p>
                 </div>
                 <div className="contact-item">
                   <strong>EMAIL:</strong>
